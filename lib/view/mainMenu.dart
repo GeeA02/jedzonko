@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/theme/colors.dart';
 import 'package:jedzonko/view/calculatorWidget.dart';
 import 'package:jedzonko/view/cameraWidget.dart';
 import 'package:jedzonko/view/historyWidget.dart';
@@ -38,6 +39,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       bottomNavigationBar: BottomNavigationBar(
+        backgroundColor: CustomColors.LightBackgroundColor,
         items: const <BottomNavigationBarItem>[
           BottomNavigationBarItem(
             icon: Icon(Icons.home),
