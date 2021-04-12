@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/view/productWidget.dart';
 
 class CalculatorWidget extends StatelessWidget {
   CalculatorWidget({Key key}) : super(key: key);
@@ -22,20 +23,20 @@ class CalculatorWidget extends StatelessWidget {
                       title: Text('Item 1',
                           style: Theme.of(context).textTheme.bodyText1),
                       onTap: () {
-                        // Update the state of the app
-                        // ...
-                        // Then close the drawer
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, ProductWidget.routeName,
+                            arguments: ScreenArguments(
+                              'Item 1',
+                            ));
                       },
                     ),
                     ListTile(
                       title: Text('Item 2',
                           style: Theme.of(context).textTheme.bodyText1),
                       onTap: () {
-                        // Update the state of the app
-                        // ...
-                        // Then close the drawer
-                        Navigator.pop(context);
+                        Navigator.pushNamed(context, ProductWidget.routeName,
+                            arguments: ScreenArguments(
+                              'Item 2',
+                            ));
                       },
                     ),
                   ])),
