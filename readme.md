@@ -1,0 +1,1 @@
+Simple application for reading barcodes and displaying information about food products.
