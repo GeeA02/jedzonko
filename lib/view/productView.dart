@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/theme/colors.dart';
 
-class ProductWidget extends StatelessWidget {
+class ProductView extends StatelessWidget {
   static const routeName = '/product';
-  ProductWidget({Key key}) : super(key: key);
+  ProductView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/productWidget.dart';
+import 'package:jedzonko/view/productView.dart';
 
-class HistoryWidget extends StatelessWidget {
-  HistoryWidget({Key key}) : super(key: key);
+class HistoryView extends StatelessWidget {
+  HistoryView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -24,7 +24,7 @@ class HistoryWidget extends StatelessWidget {
                   title: Text('Item 1',
                       style: Theme.of(context).textTheme.bodyText1),
                   onTap: () {
-                    Navigator.pushNamed(context, ProductWidget.routeName,
+                    Navigator.pushNamed(context, ProductView.routeName,
                         arguments: ScreenArguments(
                           'Item 1',
                         ));
@@ -34,7 +34,7 @@ class HistoryWidget extends StatelessWidget {
                   title: Text('Item 2',
                       style: Theme.of(context).textTheme.bodyText1),
                   onTap: () {
-                    Navigator.pushNamed(context, ProductWidget.routeName,
+                    Navigator.pushNamed(context, ProductView.routeName,
                         arguments: ScreenArguments(
                           'Item 2',
                         ));

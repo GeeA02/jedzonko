@@ -1,24 +1,24 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/calculatorWidget.dart';
-import 'package:jedzonko/view/cameraWidget.dart';
-import 'package:jedzonko/view/homeWidget.dart';
+import 'package:jedzonko/view/calculatorView.dart';
+import 'package:jedzonko/view/cameraView.dart';
+import 'package:jedzonko/view/homeView.dart';
 
 /// This is the stateful widget that the main application instantiates.
-class MainMenuWidget extends StatefulWidget {
-  const MainMenuWidget({Key key}) : super(key: key);
+class MainView extends StatefulWidget {
+  const MainView({Key key}) : super(key: key);
 
   @override
-  _MainMenuWidgetState createState() => _MainMenuWidgetState();
+  _MainViewState createState() => _MainViewState();
 }
 
 /// This is the private State class that goes with MyStatefulWidget.
-class _MainMenuWidgetState extends State<MainMenuWidget> {
+class _MainViewState extends State<MainView> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = [
-    HomeWidget(),
-    CameraWidget(),
-    CalculatorWidget(),
+    HomeView(),
+    CameraView(),
+    CalculatorView(),
   ];
 
   void _onItemTapped(int index) {

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/productWidget.dart';
+import 'package:jedzonko/view/productView.dart';
 
-class CalculatorWidget extends StatelessWidget {
-  CalculatorWidget({Key key}) : super(key: key);
+class CalculatorView extends StatelessWidget {
+  CalculatorView({Key key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +23,7 @@ class CalculatorWidget extends StatelessWidget {
                       title: Text('Item 1',
                           style: Theme.of(context).textTheme.bodyText1),
                       onTap: () {
-                        Navigator.pushNamed(context, ProductWidget.routeName,
+                        Navigator.pushNamed(context, ProductView.routeName,
                             arguments: ScreenArguments(
                               'Item 1',
                             ));
@@ -33,7 +33,7 @@ class CalculatorWidget extends StatelessWidget {
                       title: Text('Item 2',
                           style: Theme.of(context).textTheme.bodyText1),
                       onTap: () {
-                        Navigator.pushNamed(context, ProductWidget.routeName,
+                        Navigator.pushNamed(context, ProductView.routeName,
                             arguments: ScreenArguments(
                               'Item 2',
                             ));
