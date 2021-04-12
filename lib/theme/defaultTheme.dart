@@ -19,6 +19,7 @@ ThemeData defaultTheme() {
 
   final ThemeData base = ThemeData.light();
   return base.copyWith(
+      canvasColor: CustomColors.BackgroundColor,
       textTheme: _defaultTextTheme(base.textTheme),
       scaffoldBackgroundColor: CustomColors.BackgroundColor,
       primaryColor: CustomColors.PrimaryColor,
