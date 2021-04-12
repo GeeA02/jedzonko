@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:jedzonko/theme/colors.dart';
 import 'package:jedzonko/view/calculatorWidget.dart';
 import 'package:jedzonko/view/cameraWidget.dart';
-import 'package:jedzonko/view/historyWidget.dart';
 import 'package:jedzonko/view/homeWidget.dart';
 
 /// This is the stateful widget that the main application instantiates.
@@ -38,6 +37,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
             color: CustomColors.PrimaryLightColor.withOpacity(0.3)),
         elevation: 0.0,
       ),
+      //leftside menu
       drawer: Drawer(
           child: ListView(
               // Important: Remove any padding from the ListView.
