@@ -27,5 +27,7 @@ ThemeData defaultTheme() {
       primaryColorLight: CustomColors.PrimaryLightColor,
       secondaryHeaderColor: CustomColors.SecondaryColor,
       selectedRowColor: CustomColors.SearchbarColor,
-      errorColor: CustomColors.ErrorColor);
+      errorColor: CustomColors.ErrorColor,
+      bottomAppBarColor: CustomColors.LightBackgroundColor,
+      backgroundColor: CustomColors.BackgroundColor);
 }

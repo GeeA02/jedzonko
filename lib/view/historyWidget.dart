@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/theme/colors.dart';
 import 'package:jedzonko/view/productWidget.dart';
 
 class HistoryWidget extends StatelessWidget {
@@ -9,10 +8,9 @@ class HistoryWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
-          backgroundColor: Colors.transparent,
-          iconTheme: IconThemeData(
-              color: CustomColors.PrimaryLightColor.withOpacity(0.3)),
+          iconTheme: IconThemeData(color: Theme.of(context).primaryColorLight),
           elevation: 0.0,
+          title: Text("Historia"),
         ),
         body: Center(
             child: new Column(
@@ -20,11 +18,6 @@ class HistoryWidget extends StatelessWidget {
                 mainAxisSize: MainAxisSize.max,
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
-              Text(
-                "Historia",
-                style: Theme.of(context).textTheme.headline1,
-                textAlign: TextAlign.center,
-              ),
               Expanded(
                   child: ListView(children: [
                 ListTile(

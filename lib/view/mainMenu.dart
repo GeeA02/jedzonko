@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/theme/colors.dart';
 import 'package:jedzonko/view/calculatorWidget.dart';
 import 'package:jedzonko/view/cameraWidget.dart';
 import 'package:jedzonko/view/homeWidget.dart';
@@ -34,7 +33,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-            color: CustomColors.PrimaryLightColor.withOpacity(0.3)),
+            color: Theme.of(context).primaryColorLight.withOpacity(0.3)),
         elevation: 0.0,
       ),
       //leftside menu
@@ -46,7 +45,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
             DrawerHeader(
               child: Text('Menu'),
               decoration: BoxDecoration(
-                color: CustomColors.PrimaryColor,
+                color: Theme.of(context).primaryColor,
               ),
             ),
             ListTile(
@@ -71,7 +70,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
       floatingActionButton: FloatingActionButton(
-        backgroundColor: CustomColors.PrimaryColor,
+        backgroundColor: Theme.of(context).primaryColor,
         onPressed: () {
           _onItemTapped(1);
         },
@@ -83,7 +82,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
       ),
       bottomNavigationBar: BottomAppBar(
         child: Container(
-          color: CustomColors.LightBackgroundColor,
+          color: Theme.of(context).bottomAppBarColor,
           child: Row(
             mainAxisSize: MainAxisSize.max,
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -98,8 +97,8 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                   Icons.home,
                   //darken the icon if it is selected or else give it a different color
                   color: _selectedIndex == 0
-                      ? CustomColors.PrimaryColor
-                      : CustomColors.SecondaryColor,
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).secondaryHeaderColor,
                 ),
               ),
               //to leave space in between the bottom app bar items and below the FAB
@@ -114,8 +113,8 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                 icon: Icon(
                   Icons.calculate,
                   color: _selectedIndex == 2
-                      ? CustomColors.PrimaryColor
-                      : CustomColors.SecondaryColor,
+                      ? Theme.of(context).primaryColor
+                      : Theme.of(context).secondaryHeaderColor,
                 ),
               ),
             ],

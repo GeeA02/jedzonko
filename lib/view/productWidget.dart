@@ -12,7 +12,8 @@ class ProductWidget extends StatelessWidget {
 
     return Scaffold(
         appBar: AppBar(
-            iconTheme: IconThemeData(color: CustomColors.PrimaryLightColor),
+            iconTheme:
+                IconThemeData(color: Theme.of(context).primaryColorLight),
             elevation: 0.0,
             title: Text(args.productName)),
         body: Center(
