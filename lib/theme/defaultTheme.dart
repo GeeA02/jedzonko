@@ -6,7 +6,7 @@ ThemeData defaultTheme() {
   TextTheme _defaultTextTheme(TextTheme base) {
     return base.copyWith(
         headline1: base.headline1.copyWith(
-          fontSize: 22.0,
+          fontSize: 60.0,
           fontWeight: FontWeight.bold,
           color: CustomColors.FontColor,
         ),

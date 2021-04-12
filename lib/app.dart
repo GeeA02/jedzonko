@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/view/historyWidget.dart';
 import 'package:jedzonko/view/mainMenu.dart';
 import 'package:jedzonko/theme/defaultTheme.dart';
 
@@ -9,9 +10,13 @@ class App extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: MainMenuWidget(),
       title: _title,
       theme: defaultTheme(),
+      initialRoute: '/',
+      routes: {
+        '/': (context) => MainMenuWidget(),
+        '/history': (context) => HistoryWidget(),
+      },
     );
   }
 }

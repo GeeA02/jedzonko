@@ -3,6 +3,7 @@ import 'package:jedzonko/theme/colors.dart';
 import 'package:jedzonko/view/calculatorWidget.dart';
 import 'package:jedzonko/view/cameraWidget.dart';
 import 'package:jedzonko/view/historyWidget.dart';
+import 'package:jedzonko/view/homeWidget.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class MainMenuWidget extends StatefulWidget {
@@ -17,9 +18,9 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
   int _selectedIndex = 0;
 
   static List<Widget> _widgetOptions = [
-    CalculatorWidget(),
+    HomeWidget(),
     CameraWidget(),
-    HistoryWidget(),
+    CalculatorWidget(),
   ];
 
   void _onItemTapped(int index) {
@@ -33,7 +34,8 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
     return Scaffold(
       appBar: AppBar(
         backgroundColor: Colors.transparent,
-        iconTheme: IconThemeData(color: CustomColors.PrimaryLightColor),
+        iconTheme: IconThemeData(
+            color: CustomColors.PrimaryLightColor.withOpacity(0.3)),
         elevation: 0.0,
       ),
       drawer: Drawer(
@@ -48,12 +50,10 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
               ),
             ),
             ListTile(
-              title: Text('Item 1'),
+              title: Text('Historia wyszukiwania'),
               onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
                 Navigator.pop(context);
+                Navigator.pushNamed(context, '/history');
               },
             ),
             ListTile(
@@ -77,7 +77,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
         },
         child: Container(
           margin: EdgeInsets.all(15.0),
-          child: Icon(Icons.add),
+          child: Icon(Icons.photo_camera_rounded),
         ),
         elevation: 4.0,
       ),
@@ -112,7 +112,7 @@ class _MainMenuWidgetState extends State<MainMenuWidget> {
                 },
                 iconSize: 30.0,
                 icon: Icon(
-                  Icons.call_received,
+                  Icons.calculate,
                   color: _selectedIndex == 2
                       ? CustomColors.PrimaryColor
                       : CustomColors.SecondaryColor,
