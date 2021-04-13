@@ -30,7 +30,24 @@ class CalculatorView extends StatelessWidget {
                                 return ProductCard(
                                     viewModel.tmpProducts[index].name,
                                     viewModel.tmpProducts[index].imageUrl);
-                              }))
+                              })),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        mainAxisSize: MainAxisSize.max,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          ElevatedButton(
+                            style: ButtonStyle(
+                              backgroundColor: MaterialStateProperty.all<Color>(
+                                  Theme.of(context).primaryColor),
+                            ),
+                            onPressed: () {},
+                            child: Text("WYCZYŚĆ"),
+                          ),
+                          Text('0/2000 kcal',
+                              style: Theme.of(context).textTheme.bodyText1)
+                        ],
+                      )
                     ])))));
   }
 }
