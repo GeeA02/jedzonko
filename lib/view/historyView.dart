@@ -1,9 +1,10 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/productView.dart';
-import 'package:jedzonko/view/widgets/hisotryPorductCard.dart';
+import 'package:jedzonko/view/widgets/historyPorductCard.dart';
+import 'package:jedzonko/viewModel/historyViewModel.dart';
 
 class HistoryView extends StatelessWidget {
   HistoryView({Key key}) : super(key: key);
+  final HistoryViewModel viewModel = HistoryViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -20,12 +21,14 @@ class HistoryView extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 children: <Widget>[
               Expanded(
-                  child: ListView(children: [
-                HistoryProductCard(
-                    "item1", null, DateTime.now().toIso8601String()),
-                HistoryProductCard("item2", "https://picsum.photos/250?image=9",
-                    DateTime.now().toIso8601String())
-              ]))
+                  child: ListView.builder(
+                      itemCount: viewModel.tmpProducts.length,
+                      itemBuilder: (context, index) {
+                        return HistoryProductCard(
+                            viewModel.tmpProducts[index].name,
+                            viewModel.tmpProducts[index].imageUrl,
+                            viewModel.tmpProducts[index].date);
+                      }))
             ])));
   }
 }

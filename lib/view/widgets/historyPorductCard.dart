@@ -4,9 +4,9 @@ import 'package:flutter/material.dart';
 import '../productView.dart';
 
 class HistoryProductCard extends StatelessWidget {
-  String _productName;
-  String _imageUrl;
-  String _date;
+  final String _productName;
+  final String _imageUrl;
+  final String _date;
   HistoryProductCard(this._productName, this._imageUrl, this._date);
 
   @override
@@ -19,7 +19,7 @@ class HistoryProductCard extends StatelessWidget {
         leading: CircleAvatar(
           child: _imageUrl != null
               ? Image.network(_imageUrl)
-              : Image.asset('images/notFound.jpg'),
+              : Image.asset('assets/images/notFound.jpg'),
         ),
         title: Text(_productName, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {

@@ -4,8 +4,8 @@ import 'package:flutter/material.dart';
 import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
-  String _productName;
-  String _imageUrl;
+  final String _productName;
+  final String _imageUrl;
   ProductCard(this._productName, this._imageUrl);
 
   @override
@@ -18,7 +18,7 @@ class ProductCard extends StatelessWidget {
         leading: CircleAvatar(
           child: _imageUrl != null
               ? Image.network(_imageUrl)
-              : Image.asset('images/notFound.jpg'),
+              : Image.asset('assets/images/notFound.jpg'),
         ),
         title: Text(_productName, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
