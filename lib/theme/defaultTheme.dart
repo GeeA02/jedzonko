@@ -19,15 +19,17 @@ ThemeData defaultTheme() {
 
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-      canvasColor: CustomColors.BackgroundColor,
-      textTheme: _defaultTextTheme(base.textTheme),
-      scaffoldBackgroundColor: CustomColors.BackgroundColor,
-      primaryColor: CustomColors.PrimaryColor,
-      primaryColorDark: CustomColors.PrimaryDarkColor,
-      primaryColorLight: CustomColors.PrimaryLightColor,
-      secondaryHeaderColor: CustomColors.SecondaryColor,
-      selectedRowColor: CustomColors.SearchbarColor,
-      errorColor: CustomColors.ErrorColor,
-      bottomAppBarColor: CustomColors.LightBackgroundColor,
-      backgroundColor: CustomColors.BackgroundColor);
+    canvasColor: CustomColors.BackgroundColor,
+    textTheme: _defaultTextTheme(base.textTheme),
+    scaffoldBackgroundColor: CustomColors.BackgroundColor,
+    primaryColor: CustomColors.PrimaryColor,
+    primaryColorDark: CustomColors.PrimaryDarkColor,
+    primaryColorLight: CustomColors.PrimaryLightColor,
+    secondaryHeaderColor: CustomColors.SecondaryColor,
+    selectedRowColor: CustomColors.SearchbarColor,
+    errorColor: CustomColors.ErrorColor,
+    bottomAppBarColor: CustomColors.LightBackgroundColor,
+    backgroundColor: CustomColors.BackgroundColor,
+    cardColor: CustomColors.LightBackgroundColor,
+  );
 }

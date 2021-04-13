@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jedzonko/view/productView.dart';
+import 'package:jedzonko/view/widgets/hisotryPorductCard.dart';
 
 class HistoryView extends StatelessWidget {
   HistoryView({Key key}) : super(key: key);
@@ -20,26 +21,10 @@ class HistoryView extends StatelessWidget {
                 children: <Widget>[
               Expanded(
                   child: ListView(children: [
-                ListTile(
-                  title: Text('Item 1',
-                      style: Theme.of(context).textTheme.bodyText1),
-                  onTap: () {
-                    Navigator.pushNamed(context, ProductView.routeName,
-                        arguments: ScreenArguments(
-                          'Item 1',
-                        ));
-                  },
-                ),
-                ListTile(
-                  title: Text('Item 2',
-                      style: Theme.of(context).textTheme.bodyText1),
-                  onTap: () {
-                    Navigator.pushNamed(context, ProductView.routeName,
-                        arguments: ScreenArguments(
-                          'Item 2',
-                        ));
-                  },
-                ),
+                HistoryProductCard(
+                    "item1", null, DateTime.now().toIso8601String()),
+                HistoryProductCard("item2", "https://picsum.photos/250?image=9",
+                    DateTime.now().toIso8601String())
               ]))
             ])));
   }
