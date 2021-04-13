@@ -4,7 +4,7 @@ import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 class CalculatorView extends StatelessWidget {
   CalculatorView({Key key}) : super(key: key);
-  CalculatorViewModel viewModel = CalculatorViewModel();
+  final CalculatorViewModel viewModel = CalculatorViewModel();
 
   @override
   Widget build(BuildContext context) {
