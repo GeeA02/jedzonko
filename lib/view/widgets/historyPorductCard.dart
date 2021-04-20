@@ -16,7 +16,9 @@ class HistoryProductCard extends StatelessWidget {
       color: Theme.of(context).cardColor,
       clipBehavior: Clip.antiAlias,
       child: ListTile(
-        leading: CircleAvatar(
+        leading: Container(
+          height: 50,
+          width: 50,
           child: _imageUrl != null
               ? Image.network(_imageUrl)
               : Image.asset('assets/images/notFound.jpg'),

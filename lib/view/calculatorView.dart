@@ -18,10 +18,13 @@ class CalculatorView extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                      Text(
-                        "Kalkulator",
-                        style: Theme.of(context).textTheme.headline1,
-                        textAlign: TextAlign.center,
+                      Padding(
+                        padding: EdgeInsets.only(bottom: 30),
+                        child: Text(
+                          "Kalkulator",
+                          style: Theme.of(context).textTheme.headline1,
+                          textAlign: TextAlign.center,
+                        ),
                       ),
                       Expanded(
                           child: ListView.builder(
