@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:qr_mobile_vision/qr_camera.dart';
 
 class CameraView extends StatelessWidget {
   CameraView({Key key}) : super(key: key);
@@ -15,23 +16,14 @@ class CameraView extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
-              new Text(
-                "Zeskanuj kod produktu",
-                style: Theme.of(context).textTheme.headline1,
-                textAlign: TextAlign.center,
-              ),
-              new RaisedButton(
-                  key: null,
-                  onPressed: buttonPressed,
-                  color: const Color(0xFFe0e0e0),
-                  child: new Text(
-                    "CAMERA",
-                    style: new TextStyle(
-                        fontSize: 12.0,
-                        color: const Color(0xFF000000),
-                        fontWeight: FontWeight.w200,
-                        fontFamily: "Roboto"),
-                  ))
+              new SizedBox(
+                width: 300.0,
+                height: 300.0,
+                child: new QrCamera(
+                  onError: (context, error) => Text(error.toString()),
+                  qrCodeCallback: (String barcode) {print(barcode);},
+                ),
+              )
             ]),
       ),
     )));

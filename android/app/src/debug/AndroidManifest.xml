@@ -3,5 +3,9 @@
     <!-- Flutter needs it to communicate with the running application
          to allow setting breakpoints, to provide hot reload, etc.
     -->
+    <meta-data
+              android:name="com.google.mlkit.vision.DEPENDENCIES"
+              android:value="barcode" />
+
     <uses-permission android:name="android.permission.INTERNET"/>
 </manifest>
