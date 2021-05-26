@@ -5,7 +5,7 @@ import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
   final String _productName;
-  final String _imageUrl;
+  final String? _imageUrl;
   ProductCard(this._productName, this._imageUrl);
 
   @override
@@ -19,7 +19,7 @@ class ProductCard extends StatelessWidget {
           height: 50,
           width: 50,
           child: _imageUrl != null
-              ? Image.network(_imageUrl)
+              ? Image.network(_imageUrl!)
               : Image.asset('assets/images/notFound.jpg'),
         ),
         title: Text(_productName, style: Theme.of(context).textTheme.bodyText1),
