@@ -6,7 +6,7 @@ ThemeData defaultTheme() {
   TextTheme _defaultTextTheme(TextTheme base) {
     return base.copyWith(
         headline1: base.headline1.copyWith(
-          fontSize: 22.0,
+          fontSize: 60.0,
           fontWeight: FontWeight.bold,
           color: CustomColors.FontColor,
         ),
@@ -19,12 +19,17 @@ ThemeData defaultTheme() {
 
   final ThemeData base = ThemeData.light();
   return base.copyWith(
-      textTheme: _defaultTextTheme(base.textTheme),
-      scaffoldBackgroundColor: CustomColors.BackgroundColor,
-      primaryColor: CustomColors.PrimaryColor,
-      primaryColorDark: CustomColors.PrimaryDarkColor,
-      primaryColorLight: CustomColors.PrimaryLightColor,
-      secondaryHeaderColor: CustomColors.SecondaryColor,
-      selectedRowColor: CustomColors.SearchbarColor,
-      errorColor: CustomColors.ErrorColor);
+    canvasColor: CustomColors.BackgroundColor,
+    textTheme: _defaultTextTheme(base.textTheme),
+    scaffoldBackgroundColor: CustomColors.BackgroundColor,
+    primaryColor: CustomColors.PrimaryColor,
+    primaryColorDark: CustomColors.PrimaryDarkColor,
+    primaryColorLight: CustomColors.PrimaryLightColor,
+    secondaryHeaderColor: CustomColors.SecondaryColor,
+    selectedRowColor: CustomColors.SearchbarColor,
+    errorColor: CustomColors.ErrorColor,
+    bottomAppBarColor: CustomColors.LightBackgroundColor,
+    backgroundColor: CustomColors.BackgroundColor,
+    cardColor: CustomColors.LightBackgroundColor,
+  );
 }
