@@ -5,12 +5,12 @@ import 'colors.dart';
 ThemeData defaultTheme() {
   TextTheme _defaultTextTheme(TextTheme base) {
     return base.copyWith(
-        headline1: base.headline1.copyWith(
+        headline1: base.headline1!.copyWith(
           fontSize: 60.0,
           fontWeight: FontWeight.bold,
           color: CustomColors.FontColor,
         ),
-        bodyText1: base.bodyText1.copyWith(
+        bodyText1: base.bodyText1!.copyWith(
           fontSize: 15.0,
           fontWeight: FontWeight.bold,
           color: CustomColors.FontColor,

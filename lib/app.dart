@@ -5,7 +5,7 @@ import 'package:jedzonko/theme/defaultTheme.dart';
 import 'package:jedzonko/view/productView.dart';
 
 class App extends StatelessWidget {
-  const App({Key key}) : super(key: key);
+  const App({Key? key}) : super(key: key);
 
   static const String _title = 'Jedzonko';
   @override

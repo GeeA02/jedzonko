@@ -1,5 +1,5 @@
 class CalculatorViewModel {
-  List<Product> tmpProducts;
+  late List<Product> tmpProducts;
 
   CalculatorViewModel() {
     tmpProducts = [
@@ -15,7 +15,7 @@ class CalculatorViewModel {
 
 class Product {
   String name;
-  String imageUrl;
+  String? imageUrl;
   String date;
 
   Product(this.name, this.imageUrl, this.date);

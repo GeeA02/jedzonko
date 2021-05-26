@@ -3,7 +3,7 @@ import 'package:jedzonko/view/widgets/productCard.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 class CalculatorView extends StatelessWidget {
-  CalculatorView({Key key}) : super(key: key);
+  CalculatorView({Key? key}) : super(key: key);
   final CalculatorViewModel viewModel = CalculatorViewModel();
 
   @override

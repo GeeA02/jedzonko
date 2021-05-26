@@ -3,7 +3,7 @@ import 'package:jedzonko/view/widgets/historyPorductCard.dart';
 import 'package:jedzonko/viewModel/historyViewModel.dart';
 
 class HistoryView extends StatelessWidget {
-  HistoryView({Key key}) : super(key: key);
+  HistoryView({Key? key}) : super(key: key);
   final HistoryViewModel viewModel = HistoryViewModel();
 
   @override

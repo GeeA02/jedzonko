@@ -2,12 +2,12 @@ import 'package:flutter/material.dart';
 
 class ProductView extends StatelessWidget {
   static const routeName = '/product';
-  ProductView({Key key}) : super(key: key);
+  ProductView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     final ScreenArguments args =
-        ModalRoute.of(context).settings.arguments as ScreenArguments;
+        ModalRoute.of(context)!.settings.arguments as ScreenArguments;
 
     return Scaffold(
         appBar: AppBar(
@@ -39,7 +39,7 @@ class ProductView extends StatelessWidget {
                 children: [
                   OutlinedButton(
                     style: OutlinedButton.styleFrom(
-                        primary: Theme.of(context).textTheme.bodyText1.color,
+                        primary: Theme.of(context).textTheme.bodyText1!.color,
                         side:
                             BorderSide(color: Theme.of(context).primaryColor)),
                     onPressed: () {},

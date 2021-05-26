@@ -1,5 +1,5 @@
 class HistoryViewModel {
-  List<Product> tmpProducts;
+  late List<Product> tmpProducts;
 
   HistoryViewModel() {
     tmpProducts = [
@@ -19,7 +19,7 @@ class HistoryViewModel {
 
 class Product {
   String name;
-  String imageUrl;
+  String? imageUrl;
   String date;
 
   Product(this.name, this.imageUrl, this.date);

@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 
 class CameraView extends StatelessWidget {
-  CameraView({Key key}) : super(key: key);
+  CameraView({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +21,7 @@ class CameraView extends StatelessWidget {
                 height: 300.0,
                 child: new QrCamera(
                   onError: (context, error) => Text(error.toString()),
-                  qrCodeCallback: (String barcode) {print(barcode);},
+                  qrCodeCallback: (String? barcode) {print(barcode);},
                 ),
               )
             ]),
