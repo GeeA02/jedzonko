@@ -1,7 +1,7 @@
 import 'package:jedzonko/model/product.dart';
 
 class HistoryViewModel {
-  List<Product> tmpProducts;
+  late List<Product> tmpProducts;
 
   HistoryViewModel() {
     tmpProducts = [

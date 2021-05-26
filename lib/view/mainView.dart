@@ -5,7 +5,7 @@ import 'package:jedzonko/view/homeView.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class MainView extends StatefulWidget {
-  const MainView({Key key}) : super(key: key);
+  const MainView({Key? key}) : super(key: key);
 
   @override
   _MainViewState createState() => _MainViewState();

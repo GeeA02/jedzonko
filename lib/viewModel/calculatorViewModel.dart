@@ -1,7 +1,7 @@
 import 'package:jedzonko/model/product.dart';
 
 class CalculatorViewModel {
-  List<Product> tmpProducts;
+  late List<Product> tmpProducts;
 
   CalculatorViewModel() {
     tmpProducts = [
