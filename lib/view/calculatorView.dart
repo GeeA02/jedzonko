@@ -31,8 +31,7 @@ class CalculatorView extends StatelessWidget {
                               itemCount: viewModel.tmpProducts.length,
                               itemBuilder: (context, index) {
                                 return ProductCard(
-                                    viewModel.tmpProducts[index].name,
-                                    viewModel.tmpProducts[index].imageUrl);
+                                    viewModel.tmpProducts[index]);
                               })),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,

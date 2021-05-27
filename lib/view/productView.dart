@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/product.dart';
 
 class ProductView extends StatelessWidget {
   static const routeName = '/product';
@@ -6,15 +7,15 @@ class ProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final ScreenArguments args =
-        ModalRoute.of(context)!.settings.arguments as ScreenArguments;
+    final ProductScreenArguments args =
+        ModalRoute.of(context)!.settings.arguments as ProductScreenArguments;
 
     return Scaffold(
         appBar: AppBar(
             iconTheme:
                 IconThemeData(color: Theme.of(context).primaryColorLight),
             elevation: 0.0,
-            title: Text(args.productName)),
+            title: Text(args.product.name)),
         body: Center(
             child: new Column(
                 mainAxisAlignment: MainAxisAlignment.spaceAround,
@@ -59,8 +60,8 @@ class ProductView extends StatelessWidget {
   }
 }
 
-class ScreenArguments {
-  final String productName;
+class ProductScreenArguments {
+  final Product product;
 
-  ScreenArguments(this.productName);
+  ProductScreenArguments(this.product);
 }

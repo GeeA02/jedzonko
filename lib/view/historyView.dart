@@ -24,10 +24,7 @@ class HistoryView extends StatelessWidget {
                   child: ListView.builder(
                       itemCount: viewModel.tmpProducts.length,
                       itemBuilder: (context, index) {
-                        return HistoryProductCard(
-                            viewModel.tmpProducts[index].name,
-                            viewModel.tmpProducts[index].imageUrl,
-                            viewModel.tmpProducts[index].date);
+                        return HistoryProductCard(viewModel.tmpProducts[index]);
                       }))
             ])));
   }

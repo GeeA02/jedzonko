@@ -20,14 +20,21 @@ class CameraView extends StatelessWidget {
                 width: 300.0,
                 height: 300.0,
                 child: new QrCamera(
-                  onError: (context, error) => Text(error.toString()),
-                  qrCodeCallback: (String? barcode) {print(barcode);},
+                  onError: (context, error) =>
+                      Center(child: Text(error.toString())),
+                  qrCodeCallback: (String? barcode) {
+                    //TODO save result in localDB and show productView or errorProductView
+                    print(barcode);
+
+                    /*
+                    Navigator.pushNamed(context, ProductView.routeName,
+                        arguments: ProductScreenArguments(_productName));
+                        */
+                  },
                 ),
               )
             ]),
       ),
     )));
   }
-
-  void buttonPressed() {}
 }

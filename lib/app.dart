@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jedzonko/view/historyView.dart';
 import 'package:jedzonko/view/mainView.dart';
 import 'package:jedzonko/theme/defaultTheme.dart';
+import 'package:jedzonko/view/productErrorView.dart';
 import 'package:jedzonko/view/productView.dart';
 
 class App extends StatelessWidget {
@@ -18,6 +19,7 @@ class App extends StatelessWidget {
         '/': (context) => MainView(),
         '/history': (context) => HistoryView(),
         ProductView.routeName: (context) => ProductView(),
+        ProductErrorView.routeName: (context) => ProductErrorView(),
       },
     );
   }
