@@ -1,29 +1,35 @@
 import 'dart:convert';
+import 'package:intl/intl.dart';
 
 class Product {
   String? barcode;
   String name;
   String? imageUrl;
-  String date;
+  DateTime _date;
+
+  String getDate() {
+    final f = new DateFormat('dd/MM/yyyy HH:mm');
+    return f.format(_date);
+  }
 
   Product(
     this.barcode,
     this.name,
     this.imageUrl,
-    this.date,
+    this._date,
   );
 
   Product copyWith({
     String? barcode,
     String? name,
     String? imageUrl,
-    String? date,
+    DateTime? date,
   }) {
     return Product(
       barcode ?? this.barcode,
       name ?? this.name,
       imageUrl ?? this.imageUrl,
-      date ?? this.date,
+      date ?? this._date,
     );
   }
 
@@ -32,7 +38,7 @@ class Product {
       'barcode': barcode,
       'name': name,
       'imageUrl': imageUrl,
-      'date': date,
+      '_date': _date,
     };
   }
 
@@ -41,35 +47,36 @@ class Product {
       map['barcode'],
       map['name'],
       map['imageUrl'],
-      map['date'],
+      map['_date'],
     );
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Product.fromJson(String source) => Product.fromMap(json.decode(source));
+  factory Product.fromJson(String source) =>
+      Product.fromMap(json.decode(source));
 
   @override
   String toString() {
-    return 'Product(barcode: $barcode, name: $name, imageUrl: $imageUrl, date: $date)';
+    return 'Product(barcode: $barcode, name: $name, imageUrl: $imageUrl, _date: $_date)';
   }
 
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Product &&
-      other.barcode == barcode &&
-      other.name == name &&
-      other.imageUrl == imageUrl &&
-      other.date == date;
+        other.barcode == barcode &&
+        other.name == name &&
+        other.imageUrl == imageUrl &&
+        other._date == _date;
   }
 
   @override
   int get hashCode {
     return barcode.hashCode ^
-      name.hashCode ^
-      imageUrl.hashCode ^
-      date.hashCode;
+        name.hashCode ^
+        imageUrl.hashCode ^
+        _date.hashCode;
   }
 }

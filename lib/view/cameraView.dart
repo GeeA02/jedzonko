@@ -16,12 +16,16 @@ class CameraView extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              //TODO  v make this responsible v
               new SizedBox(
                 width: 300.0,
                 height: 250.0,
                 child: new QrCamera(
-                  notStartedBuilder: (context) =>
-                      Center(child: CircularProgressIndicator()),
+                  notStartedBuilder: (context) => Center(
+                      child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        Theme.of(context).primaryColor),
+                  )),
                   onError: (context, error) =>
                       Center(child: Text(error.toString())),
                   qrCodeCallback: (String? barcode) {

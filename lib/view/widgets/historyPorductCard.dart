@@ -22,12 +22,13 @@ class HistoryProductCard extends StatelessWidget {
               ? Image.network(_product.imageUrl!)
               : Image.asset('assets/images/notFound.jpg'),
         ),
-        title: Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
+        title:
+            Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
           Navigator.pushNamed(context, ProductView.routeName,
               arguments: ProductScreenArguments(_product));
         },
-        subtitle: Text(_product.date),
+        subtitle: Text(_product.getDate()),
       ),
     );
   }
