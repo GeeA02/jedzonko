@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:jedzonko/view/calculatorView.dart';
 import 'package:jedzonko/view/cameraView.dart';
 import 'package:jedzonko/view/homeView.dart';
+import 'package:jedzonko/view/widgets/sideMenu.dart';
 
 /// This is the stateful widget that the main application instantiates.
 class MainView extends StatefulWidget {
@@ -33,39 +34,13 @@ class _MainViewState extends State<MainView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-            color: Theme.of(context).primaryColorLight.withOpacity(0.3)),
+            color: Theme.of(context).primaryColor.withOpacity(0.3)),
         elevation: 0.0,
       ),
       //leftside menu
-      drawer: Drawer(
-          child: ListView(
-              // Important: Remove any padding from the ListView.
-              padding: EdgeInsets.zero,
-              children: <Widget>[
-            DrawerHeader(
-              child: Text('Menu'),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
-              ),
-            ),
-            ListTile(
-              title: Text('Historia wyszukiwania'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/history');
-              },
-            ),
-            ListTile(
-              title: Text('Item 2'),
-              onTap: () {
-                // Update the state of the app
-                // ...
-                // Then close the drawer
-                Navigator.pop(context);
-              },
-            ),
-          ])),
-      body: Center(
+      drawer: SideMenu(),
+      body: Container(
+        color: Theme.of(context).backgroundColor,
         child: _widgetOptions.elementAt(_selectedIndex),
       ),
       floatingActionButtonLocation: FloatingActionButtonLocation.centerDocked,
