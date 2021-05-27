@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/theme/config.dart';
 
 import 'changeThemeDialog.dart';
 
@@ -13,42 +12,45 @@ class SideMenu extends StatelessWidget {
     return Drawer(
         child: Container(
       color: Theme.of(context).backgroundColor,
-      child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: <Widget>[
-            DrawerHeader(
-              child: Text('Menu'),
-              decoration: BoxDecoration(
-                color: Theme.of(context).primaryColor,
+      child: ListView(padding: EdgeInsets.zero, children: <Widget>[
+        DrawerHeader(
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                'Menu',
+                style: Theme.of(context).textTheme.headline3,
               ),
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.history,
-                color: Theme.of(context).primaryColor.withOpacity(0.7),
-              ),
-              title: Text('Historia wyszukiwania'),
-              onTap: () {
-                Navigator.pop(context);
-                Navigator.pushNamed(context, '/history');
-              },
-            ),
-            ListTile(
-              leading: Icon(
-                Icons.color_lens_outlined,
-                color: Theme.of(context).primaryColor.withOpacity(0.7),
-              ),
-              title: Text('Zmień motyw'),
-              onTap: () {
-                showDialog<void>(
-                    context: context,
-                    builder: (context) => ChangeThemeDialog());
-                //currentTheme.toggleTheme();
-                //Navigator.pop(context);
-              },
-            ),
-          ]),
+            ],
+          ),
+          decoration: BoxDecoration(
+            color: Theme.of(context).primaryColor,
+          ),
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.history,
+            color: Theme.of(context).primaryColor.withOpacity(0.7),
+          ),
+          title: Text('Historia wyszukiwania'),
+          onTap: () {
+            Navigator.pop(context);
+            Navigator.pushNamed(context, '/history');
+          },
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.color_lens_outlined,
+            color: Theme.of(context).primaryColor.withOpacity(0.7),
+          ),
+          title: Text('Zmień motyw'),
+          onTap: () {
+            showDialog<void>(
+                context: context, builder: (context) => ChangeThemeDialog());
+          },
+        ),
+      ]),
     ));
   }
 }
