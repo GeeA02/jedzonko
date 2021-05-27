@@ -18,8 +18,10 @@ class CameraView extends StatelessWidget {
             children: <Widget>[
               new SizedBox(
                 width: 300.0,
-                height: 300.0,
+                height: 250.0,
                 child: new QrCamera(
+                  notStartedBuilder: (context) =>
+                      Center(child: CircularProgressIndicator()),
                   onError: (context, error) =>
                       Center(child: Text(error.toString())),
                   qrCodeCallback: (String? barcode) {
@@ -31,6 +33,20 @@ class CameraView extends StatelessWidget {
                         arguments: ProductScreenArguments(_productName));
                         */
                   },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.symmetric(
+                          vertical: BorderSide(
+                            color: Colors.grey.withOpacity(0.5),
+                            width: 35.0,
+                          ),
+                          horizontal: BorderSide(
+                            color: Colors.grey.withOpacity(0.5),
+                            width: 60.0,
+                          )),
+                    ),
+                  ),
                 ),
               )
             ]),
