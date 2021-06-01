@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/nutriments.dart';
 import 'package:jedzonko/model/product.dart';
 
 class ProductView extends StatelessWidget {
@@ -62,6 +63,7 @@ class ProductView extends StatelessWidget {
 
 class ProductScreenArguments {
   final Product product;
+  final Nutriments? nutriments;
 
-  ProductScreenArguments(this.product);
+  ProductScreenArguments(this.product, this.nutriments);
 }

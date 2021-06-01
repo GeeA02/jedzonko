@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/api/api.dart';
+import 'package:jedzonko/view/productView.dart';
+import 'package:jedzonko/view/widgets/loadingDialog.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 
 class CameraView extends StatelessWidget {
@@ -11,16 +14,16 @@ class CameraView extends StatelessWidget {
             child: Padding(
       padding: EdgeInsets.all(30),
       child: Container(
-        child: new Column(
+        child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
               //TODO  v make this responsible v
-              new SizedBox(
+              SizedBox(
                 width: 300.0,
                 height: 250.0,
-                child: new QrCamera(
+                child: QrCamera(
                   notStartedBuilder: (context) => Center(
                       child: CircularProgressIndicator(
                     valueColor: AlwaysStoppedAnimation<Color>(
@@ -32,10 +35,17 @@ class CameraView extends StatelessWidget {
                     //TODO save result in localDB and show productView or errorProductView
                     print(barcode);
 
-                    /*
-                    Navigator.pushNamed(context, ProductView.routeName,
-                        arguments: ProductScreenArguments(_productName));
-                        */
+                    // version 1
+                    // showDialog<void>(
+                    //   context: context,
+                    //   builder: (context) => LoadingDialog(barcode!),
+                    // );
+
+                    // //version 2
+                    // API.fetchApiProduct(barcode!).then((value) =>
+                    //     Navigator.pushNamed(context, ProductView.routeName,
+                    //         arguments: ProductScreenArguments(
+                    //             value.product, value.nutriments)));
                   },
                   child: Container(
                     decoration: BoxDecoration(

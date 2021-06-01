@@ -26,7 +26,7 @@ class HistoryProductCard extends StatelessWidget {
             Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
           Navigator.pushNamed(context, ProductView.routeName,
-              arguments: ProductScreenArguments(_product));
+              arguments: ProductScreenArguments(_product, null));
         },
         subtitle: Text(_product.getDate()),
       ),
