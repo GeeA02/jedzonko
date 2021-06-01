@@ -37,17 +37,16 @@ class Product {
   }
 
   factory Product.fromMap(Map<String, dynamic> map) {
-    return Product(
-      map['barcode'],
-      map['name'],
-      map['imageUrl'],
-      map['date'],
-    );
+    DateTime now = new DateTime.now();
+    DateTime date = new DateTime(now.year, now.month, now.day);
+    return Product(map['code'], map['product']['product_name_pl'],
+        map['image_url'], date.toString());
   }
 
   String toJson() => json.encode(toMap());
 
-  factory Product.fromJson(String source) => Product.fromMap(json.decode(source));
+  factory Product.fromJson(String source) =>
+      Product.fromMap(json.decode(source));
 
   @override
   String toString() {
@@ -57,19 +56,16 @@ class Product {
   @override
   bool operator ==(Object other) {
     if (identical(this, other)) return true;
-  
+
     return other is Product &&
-      other.barcode == barcode &&
-      other.name == name &&
-      other.imageUrl == imageUrl &&
-      other.date == date;
+        other.barcode == barcode &&
+        other.name == name &&
+        other.imageUrl == imageUrl &&
+        other.date == date;
   }
 
   @override
   int get hashCode {
-    return barcode.hashCode ^
-      name.hashCode ^
-      imageUrl.hashCode ^
-      date.hashCode;
+    return barcode.hashCode ^ name.hashCode ^ imageUrl.hashCode ^ date.hashCode;
   }
 }
