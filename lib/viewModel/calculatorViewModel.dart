@@ -9,9 +9,9 @@ class CalculatorViewModel {
           null,
           "Mleko",
           "https://static.openfoodfacts.org/images/products/590/082/000/0011/front_pl.39.400.jpg",
-          DateTime.now().toIso8601String()),
-      Product(null, "Chleb", null, DateTime.now().toIso8601String()),
-      Product(null, "Majonez", null, DateTime.now().toIso8601String())
+          DateTime.now()),
+      Product(null, "Chleb", null, DateTime.now()),
+      Product(null, "Majonez", null, DateTime.now())
     ];
   }
 }

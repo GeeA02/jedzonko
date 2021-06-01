@@ -15,20 +15,21 @@ class HistoryView extends StatelessWidget {
           title: Text("Historia"),
         ),
         body: Center(
-            child: new Column(
-                mainAxisAlignment: MainAxisAlignment.spaceAround,
-                mainAxisSize: MainAxisSize.max,
-                crossAxisAlignment: CrossAxisAlignment.center,
-                children: <Widget>[
-              Expanded(
-                  child: ListView.builder(
-                      itemCount: viewModel.tmpProducts.length,
-                      itemBuilder: (context, index) {
-                        return HistoryProductCard(
-                            viewModel.tmpProducts[index].name,
-                            viewModel.tmpProducts[index].imageUrl,
-                            viewModel.tmpProducts[index].date);
-                      }))
-            ])));
+            child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 30, vertical: 10),
+          child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              mainAxisSize: MainAxisSize.max,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: <Widget>[
+                Expanded(
+                    child: ListView.builder(
+                        itemCount: viewModel.tmpProducts.length,
+                        itemBuilder: (context, index) {
+                          return HistoryProductCard(
+                              viewModel.tmpProducts[index]);
+                        }))
+              ]),
+        )));
   }
 }

@@ -11,7 +11,7 @@ class CalculatorView extends StatelessWidget {
     return Scaffold(
         body: Center(
             child: Padding(
-                padding: EdgeInsets.all(30),
+                padding: EdgeInsets.symmetric(horizontal: 30, vertical: 10),
                 child: Center(
                     child: Column(
                         mainAxisAlignment: MainAxisAlignment.start,
@@ -31,25 +31,28 @@ class CalculatorView extends StatelessWidget {
                               itemCount: viewModel.tmpProducts.length,
                               itemBuilder: (context, index) {
                                 return ProductCard(
-                                    viewModel.tmpProducts[index].name,
-                                    viewModel.tmpProducts[index].imageUrl);
+                                    viewModel.tmpProducts[index]);
                               })),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        mainAxisSize: MainAxisSize.max,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          ElevatedButton(
-                            style: ButtonStyle(
-                              backgroundColor: MaterialStateProperty.all<Color>(
-                                  Theme.of(context).primaryColor),
+                      Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 20),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          mainAxisSize: MainAxisSize.max,
+                          crossAxisAlignment: CrossAxisAlignment.center,
+                          children: [
+                            ElevatedButton(
+                              style: ButtonStyle(
+                                backgroundColor:
+                                    MaterialStateProperty.all<Color>(
+                                        Theme.of(context).primaryColor),
+                              ),
+                              onPressed: () {},
+                              child: Text("WYCZYŚĆ"),
                             ),
-                            onPressed: () {},
-                            child: Text("WYCZYŚĆ"),
-                          ),
-                          Text('0/2000 kcal',
-                              style: Theme.of(context).textTheme.bodyText1)
-                        ],
+                            Text('0/2000 kcal',
+                                style: Theme.of(context).textTheme.bodyText1)
+                          ],
+                        ),
                       )
                     ])))));
   }

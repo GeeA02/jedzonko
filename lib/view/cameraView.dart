@@ -16,18 +16,45 @@ class CameraView extends StatelessWidget {
             mainAxisSize: MainAxisSize.max,
             crossAxisAlignment: CrossAxisAlignment.center,
             children: <Widget>[
+              //TODO  v make this responsible v
               new SizedBox(
                 width: 300.0,
-                height: 300.0,
+                height: 250.0,
                 child: new QrCamera(
-                  onError: (context, error) => Text(error.toString()),
-                  qrCodeCallback: (String? barcode) {print(barcode);},
+                  notStartedBuilder: (context) => Center(
+                      child: CircularProgressIndicator(
+                    valueColor: AlwaysStoppedAnimation<Color>(
+                        Theme.of(context).primaryColor),
+                  )),
+                  onError: (context, error) =>
+                      Center(child: Text(error.toString())),
+                  qrCodeCallback: (String? barcode) {
+                    //TODO save result in localDB and show productView or errorProductView
+                    print(barcode);
+
+                    /*
+                    Navigator.pushNamed(context, ProductView.routeName,
+                        arguments: ProductScreenArguments(_productName));
+                        */
+                  },
+                  child: Container(
+                    decoration: BoxDecoration(
+                      color: Colors.transparent,
+                      border: Border.symmetric(
+                          vertical: BorderSide(
+                            color: Colors.grey.withOpacity(0.5),
+                            width: 35.0,
+                          ),
+                          horizontal: BorderSide(
+                            color: Colors.grey.withOpacity(0.5),
+                            width: 60.0,
+                          )),
+                    ),
+                  ),
                 ),
               )
             ]),
       ),
     )));
   }
-
-  void buttonPressed() {}
 }
