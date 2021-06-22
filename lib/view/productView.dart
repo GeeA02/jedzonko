@@ -22,19 +22,20 @@ class ProductView extends StatelessWidget {
             title: Text(args.product.name)),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
-          child: Center(
+          child: Container(
               child: new Column(
                   mainAxisAlignment: MainAxisAlignment.spaceAround,
                   mainAxisSize: MainAxisSize.max,
-                  crossAxisAlignment: CrossAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.stretch,
                   children: <Widget>[
-                Padding(
+                Container(
+                  height: 200,
                   padding: const EdgeInsets.all(16.0),
                   child: args.product.imageUrl != null
                       ? Image.network(args.product.imageUrl!)
                       : Image.asset('assets/images/notFound.jpg'),
                 ),
-                //ProductInfo(),
+                Expanded(child: ProductInfo(args.nutriments)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,

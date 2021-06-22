@@ -16,7 +16,8 @@ class _AddProductDialogState extends State<AddProductDialog> {
   Widget build(BuildContext context) {
     if (widget._quantity != null) _productQuantity = widget._quantity!;
     return AlertDialog(
-      title: Text('Dodaj produkt'),
+      title: Text(
+          widget._quantity != null ? 'Edytuj ilość produktu' : 'Dodaj produkt'),
       content: Form(
           child: Column(
         mainAxisSize: MainAxisSize.min,
