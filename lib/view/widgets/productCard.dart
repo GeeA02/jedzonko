@@ -1,12 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/product.dart';
 
 import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
-  final String _productName;
-  final String? _imageUrl;
-  ProductCard(this._productName, this._imageUrl);
+  final Product _product;
+
+  ProductCard(this._product);
 
   @override
   Widget build(BuildContext context) {
@@ -18,14 +19,15 @@ class ProductCard extends StatelessWidget {
         leading: Container(
           height: 50,
           width: 50,
-          child: _imageUrl != null
-              ? Image.network(_imageUrl!)
+          child: _product.imageUrl != null
+              ? Image.network(_product.imageUrl!)
               : Image.asset('assets/images/notFound.jpg'),
         ),
-        title: Text(_productName, style: Theme.of(context).textTheme.bodyText1),
+        title:
+            Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
           Navigator.pushNamed(context, ProductView.routeName,
-              arguments: ScreenArguments(_productName));
+              arguments: ProductScreenArguments(_product, null));
         },
       ),
     );
