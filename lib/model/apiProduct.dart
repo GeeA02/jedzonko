@@ -4,6 +4,6 @@ import 'nutriments.dart';
 
 class ApiProduct {
   Product product;
-  Nutriments nutriments;
+  Nutriments? nutriments;
   ApiProduct(this.product, this.nutriments);
 }
