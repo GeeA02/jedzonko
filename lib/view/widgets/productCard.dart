@@ -43,7 +43,7 @@ class ProductCard extends StatelessWidget {
             icon: Icon(Icons.edit),
             onPressed: () {
               showDialog<void>(
-                  context: context, builder: (context) => AddProductDialog());
+                  context: context, builder: (context) => AddProductDialog(null));
             },
           ),
           leading: Container(

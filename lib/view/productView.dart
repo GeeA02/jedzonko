@@ -56,7 +56,7 @@ class ProductView extends StatelessWidget {
                       onPressed: () {
                         showDialog<void>(
                             context: context,
-                            builder: (context) => AddProductDialog());
+                            builder: (context) => AddProductDialog(null));
                       },
                       child: Text("Dodaj"),
                     )
