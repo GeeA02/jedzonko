@@ -2,6 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product.dart';
+import 'package:jedzonko/view/widgets/addProductDialog.dart';
 
 import '../productView.dart';
 
@@ -38,6 +39,13 @@ class ProductCard extends StatelessWidget {
         color: Theme.of(context).cardColor,
         clipBehavior: Clip.antiAlias,
         child: ListTile(
+          trailing: IconButton(
+            icon: Icon(Icons.edit),
+            onPressed: () {
+              showDialog<void>(
+                  context: context, builder: (context) => AddProductDialog());
+            },
+          ),
           leading: Container(
             height: 50,
             width: 50,
