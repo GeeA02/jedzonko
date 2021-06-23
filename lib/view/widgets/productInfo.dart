@@ -16,11 +16,11 @@ class ProductInfo extends StatelessWidget {
             children: <Widget>[
               Container(
                 child: TabBar(
-                  labelColor: Colors.green,
-                  unselectedLabelColor: Colors.black,
+                  indicatorColor: Theme.of(context).primaryColor,
+                  labelColor: Theme.of(context).textTheme.bodyText1!.color,
                   tabs: [
                     Tab(text: 'Składniki'),
-                    Tab(text: 'Wartości odżywcze na 100g'),
+                    Tab(text: 'Wartości odżywcze\n na 100g'),
                   ],
                 ),
               ),
