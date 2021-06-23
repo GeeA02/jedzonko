@@ -20,8 +20,8 @@ class _CameraWidgetState extends State<CameraWidget> {
   @override
   Widget build(BuildContext context) {
     return SizedBox(
-      width: MediaQuery.of(context).size.width - 20,
-      height: MediaQuery.of(context).size.height - 700,
+      width: MediaQuery.of(context).size.width * 0.9,
+      height: MediaQuery.of(context).size.height * 0.4,
       child: _camState
           ? QrCamera(
               formats: [

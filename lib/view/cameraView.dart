@@ -15,13 +15,7 @@ class CameraView extends StatelessWidget {
             child: Padding(
       padding: EdgeInsets.all(30),
       child: Container(
-        child: Column(
-            mainAxisAlignment: MainAxisAlignment.spaceAround,
-            mainAxisSize: MainAxisSize.max,
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: <Widget>[
-              CameraWidget(),
-            ]),
+        child: CameraWidget(),
       ),
     )));
   }
