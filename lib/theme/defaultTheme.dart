@@ -26,6 +26,10 @@ class DefaultTheme with ChangeNotifier {
                   fontSize: 15.0,
                   fontWeight: FontWeight.bold,
                 ),
+            headline5: ThemeData.dark()
+                .textTheme
+                .headline5!
+                .copyWith(color: CustomColors.PrimaryColor),
           ),
     );
   }
@@ -55,6 +59,10 @@ class DefaultTheme with ChangeNotifier {
                   fontSize: 15.0,
                   fontWeight: FontWeight.bold,
                 ),
+            headline5: ThemeData.light()
+                .textTheme
+                .headline5!
+                .copyWith(color: CustomColors.PrimaryColor),
           ),
     );
   }

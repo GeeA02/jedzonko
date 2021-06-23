@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/api/api.dart';
+import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/view/productErrorView.dart';
 
 import '../productView.dart';
@@ -29,7 +30,7 @@ class LoadingDialog extends StatelessWidget {
                 ];
 
                 Navigator.pushNamed(context, ProductView.routeName,
-                    arguments: ProductScreenArguments(
+                    arguments: ApiProduct(
                         snapshot.data.product, snapshot.data.nutriments));
               } else if (snapshot.hasError) {
                 children = <Widget>[

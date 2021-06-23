@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product.dart';
 
 import '../productView.dart';
@@ -26,7 +27,7 @@ class HistoryProductCard extends StatelessWidget {
             Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
           Navigator.pushNamed(context, ProductView.routeName,
-              arguments: ProductScreenArguments(_product, null));
+              arguments: ApiProduct(_product, null));
         },
         subtitle: Text(_product.getDate()),
       ),
