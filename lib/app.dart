@@ -35,7 +35,6 @@ class _AppState extends State {
         '/': (context) => MainView(),
         '/history': (context) => HistoryView(),
         ProductView.routeName: (context) => ProductView(),
-        ProductErrorView.routeName: (context) => ProductErrorView(),
       },
     );
   }

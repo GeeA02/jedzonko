@@ -4,7 +4,6 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/api/api.dart';
 import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/view/productErrorView.dart';
 
 import '../productView.dart';
 
