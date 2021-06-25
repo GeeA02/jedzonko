@@ -1,3 +1,5 @@
+import 'dart:async';
+
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/api/api.dart';
@@ -7,7 +9,7 @@ import 'package:jedzonko/view/productErrorView.dart';
 import '../productView.dart';
 
 class LoadingDialog extends StatelessWidget {
-  String _barcode;
+  final String _barcode;
   LoadingDialog(this._barcode);
 
   @override
@@ -28,10 +30,11 @@ class LoadingDialog extends StatelessWidget {
                     size: 60,
                   ),
                 ];
-
-                Navigator.pushNamed(context, ProductView.routeName,
-                    arguments: ApiProduct(
-                        snapshot.data.product, snapshot.data.nutriments));
+                // pop with returning APIProduct
+                Timer(Duration(milliseconds: 1000), () {
+                  Navigator.of(context, rootNavigator: true).pop(ApiProduct(
+                      snapshot.data.product, snapshot.data.nutriments));
+                });
               } else if (snapshot.hasError) {
                 children = <Widget>[
                   Icon(
@@ -39,10 +42,21 @@ class LoadingDialog extends StatelessWidget {
                     color: Theme.of(context).errorColor,
                     size: 60,
                   ),
+                  Text(
+                    "Niestety kodu $_barcode",
+                    style: Theme.of(context).textTheme.bodyText1,
+                    textAlign: TextAlign.center,
+                  ),
+                  Text(
+                    "nie znaleziono w bazie danych. Sprawdź poprawność wczytanego kodu i spróbuj ponownie.",
+                    style: Theme.of(context).textTheme.bodyText1,
+                    textAlign: TextAlign.center,
+                  ),
                 ];
-
-                Navigator.pushNamed(context, ProductErrorView.routeName,
-                    arguments: ErrorScreenArguments(_barcode));
+                // pop and return null
+                Timer(Duration(milliseconds: 5000), () {
+                  Navigator.of(context, rootNavigator: true).pop(null);
+                });
               } else {
                 children = <Widget>[
                   SizedBox(

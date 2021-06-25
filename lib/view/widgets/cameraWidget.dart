@@ -1,7 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/apiProduct.dart';
+import 'package:jedzonko/view/widgets/loadingDialog.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 import 'package:qr_mobile_vision/qr_mobile_vision.dart';
+
+import '../productView.dart';
 
 class CameraWidget extends StatefulWidget {
   @override
@@ -10,6 +14,7 @@ class CameraWidget extends StatefulWidget {
 
 class _CameraWidgetState extends State<CameraWidget> {
   bool _camState = true;
+
   @override
   void dispose() {
     super.dispose();
@@ -24,12 +29,6 @@ class _CameraWidgetState extends State<CameraWidget> {
       height: MediaQuery.of(context).size.height * 0.4,
       child: _camState
           ? QrCamera(
-              formats: [
-                BarcodeFormats.CODE_128,
-                BarcodeFormats.CODE_39,
-                BarcodeFormats.CODE_93,
-                BarcodeFormats.CODABAR,
-              ],
               notStartedBuilder: (context) => Center(
                   child: CircularProgressIndicator(
                 valueColor: AlwaysStoppedAnimation<Color>(
@@ -38,22 +37,19 @@ class _CameraWidgetState extends State<CameraWidget> {
               onError: (context, error) =>
                   Center(child: Text(error.toString())),
               qrCodeCallback: (String? barcode) {
-                //TODO save result in localDB and show productView or errorProductView
                 print(barcode);
+                //turn off the camera
                 setState(() {
                   _camState = false;
                 });
-                // version 1
-                // showDialog<void>(
-                //   context: context,
-                //   builder: (context) => LoadingDialog(barcode!),
-                // );
+                // show loading dialog, and return result from api or null if error occurs
+                Future<ApiProduct?> result = showDialog<ApiProduct?>(
+                  context: context,
+                  builder: (context) => LoadingDialog(barcode!),
+                  useRootNavigator: false,
+                );
 
-                // //version 2
-                // API.fetchApiProduct(barcode!).then((value) =>
-                //     Navigator.pushNamed(context, ProductView.routeName,
-                //         arguments: ProductScreenArguments(
-                //             value.product, value.nutriments)));
+                result.then((value) => checkResult(value));
               },
               child: Container(
                 decoration: BoxDecoration(
@@ -70,7 +66,19 @@ class _CameraWidgetState extends State<CameraWidget> {
                 ),
               ),
             )
-          : Center(child: Text("Camera inactive")),
+          : Center(),
     );
+  }
+
+  void checkResult(value) {
+    if (value != null) {
+      // navigate to product page
+      Navigator.pushNamed(context, ProductView.routeName, arguments: value);
+    } else {
+      // turn on the camera
+      setState(() {
+        _camState = true;
+      });
+    }
   }
 }
