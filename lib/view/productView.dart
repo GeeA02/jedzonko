@@ -1,7 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/model/nutriments.dart';
-import 'package:jedzonko/model/product.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
 import 'package:jedzonko/view/widgets/productInfo.dart';
 
