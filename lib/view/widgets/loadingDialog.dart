@@ -5,7 +5,6 @@ import 'package:flutter/material.dart';
 import 'package:jedzonko/api/api.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 
-import '../productView.dart';
 
 class LoadingDialog extends StatelessWidget {
   final String _barcode;

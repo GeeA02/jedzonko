@@ -3,7 +3,6 @@ import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/view/widgets/loadingDialog.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
-import 'package:qr_mobile_vision/qr_mobile_vision.dart';
 
 import '../productView.dart';
 

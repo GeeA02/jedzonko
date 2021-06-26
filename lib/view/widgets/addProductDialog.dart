@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/database/product_repository.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class AddProductDialog extends StatefulWidget {
@@ -11,6 +12,7 @@ class AddProductDialog extends StatefulWidget {
 
 class _AddProductDialogState extends State<AddProductDialog> {
   int _productQuantity = 0;
+  var box = ProductRepository().productListBox;
 
   @override
   Widget build(BuildContext context) {
@@ -46,8 +48,9 @@ class _AddProductDialogState extends State<AddProductDialog> {
         TextButton(
           onPressed: () {
             Navigator.pop(context);
-
-            //TODO dodawanie do bazy kalkulatora
+            // box.put(product.hash(), product)
+            // Jak się tu dostać to do produktu który mam dodać?
+            //TODO dodawanie do bazy kalkulatora (in progress)
           },
           child: Text('DODAJ',
               style: Theme.of(context)

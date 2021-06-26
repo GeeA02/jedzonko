@@ -1,5 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/database/product_repository.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
@@ -8,6 +9,7 @@ import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
   final Product _product;
+  var box = ProductRepository().productListBox;
 
   ProductCard(this._product);
 
@@ -16,7 +18,8 @@ class ProductCard extends StatelessWidget {
     return Dismissible(
       key: UniqueKey(),
       onDismissed: (direction) {
-        //TODO remove product from list
+        box!.delete(_product.hashCode);
+        //TODO remove product from list (should work but not tested)
       },
       background: Container(
         color: Theme.of(context).errorColor,

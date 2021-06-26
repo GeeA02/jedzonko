@@ -1,7 +1,8 @@
 import 'dart:convert';
+
 import 'package:intl/intl.dart';
 
-class Product {
+class Product{
   String? barcode;
   String name;
   String? imageUrl;

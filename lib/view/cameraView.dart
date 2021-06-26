@@ -1,9 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/api/api.dart';
-import 'package:jedzonko/view/productView.dart';
 import 'package:jedzonko/view/widgets/cameraWidget.dart';
-import 'package:jedzonko/view/widgets/loadingDialog.dart';
-import 'package:qr_mobile_vision/qr_camera.dart';
 
 class CameraView extends StatelessWidget {
   CameraView({Key? key}) : super(key: key);
