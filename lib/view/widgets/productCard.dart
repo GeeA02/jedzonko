@@ -1,6 +1,6 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jedzonko/database/product_repository.dart';
+import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
@@ -9,7 +9,7 @@ import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
   final Product _product;
-  var box = ProductRepository().productListBox;
+  var box = CalculatorProductRepository().productListBox;
 
   ProductCard(this._product);
 

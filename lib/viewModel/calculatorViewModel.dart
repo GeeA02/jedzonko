@@ -1,4 +1,4 @@
-import 'package:jedzonko/database/product_repository.dart';
+import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/model/product.dart';
 
 class CalculatorViewModel {
@@ -6,8 +6,7 @@ class CalculatorViewModel {
   // Singleton CalculatorViewModel implemetentation
   static final CalculatorViewModel _calculatorViewModel = CalculatorViewModel._internal();
   CalculatorViewModel._internal();
-  factory CalculatorViewModel({required ProductRepository repository}){
-    
+  factory CalculatorViewModel({required CalculatorProductRepository repository}){
     return _calculatorViewModel;
   }
 

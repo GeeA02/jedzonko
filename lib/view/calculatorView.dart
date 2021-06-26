@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/database/product_repository.dart';
+import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/view/widgets/productCard.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
@@ -7,7 +7,7 @@ class CalculatorView extends StatelessWidget {
   CalculatorView({Key? key}) : super(key: key);
 
   // Initializing viewModel with repository singleton instance
-  final CalculatorViewModel viewModel = CalculatorViewModel(repository: ProductRepository());
+  final CalculatorViewModel viewModel = CalculatorViewModel(repository: CalculatorProductRepository());
 
   @override
   Widget build(BuildContext context) {
