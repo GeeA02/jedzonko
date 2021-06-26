@@ -11,6 +11,6 @@ class ApiProduct extends HiveObject {
   Product product;
   @HiveField(1)
   Nutriments? nutriments;
-  @HiveField(2)
+  
   ApiProduct(this.product, this.nutriments);
 }

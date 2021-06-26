@@ -50,7 +50,7 @@ class _AddProductDialogState extends State<AddProductDialog> {
             Navigator.pop(context);
             // box.put(product.hash(), product)
             // Jak się tu dostać to do produktu który mam dodać?
-            //TODO dodawanie do bazy kalkulatora (in progress)
+            // TODO dodawanie do bazy kalkulatora (in progress)
           },
           child: Text('DODAJ',
               style: Theme.of(context)
