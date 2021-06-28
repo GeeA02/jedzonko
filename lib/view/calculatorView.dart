@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:jedzonko/database/calculator_product_repository.dart';
+import 'package:jedzonko/view/widgets/kcalConuterWidget.dart';
 import 'package:jedzonko/view/widgets/productCard.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
@@ -7,7 +8,8 @@ class CalculatorView extends StatelessWidget {
   CalculatorView({Key? key}) : super(key: key);
 
   // Initializing viewModel with repository singleton instance
-  final CalculatorViewModel viewModel = CalculatorViewModel(repository: CalculatorProductRepository());
+  final CalculatorViewModel viewModel =
+      CalculatorViewModel(repository: CalculatorProductRepository());
 
   @override
   Widget build(BuildContext context) {
@@ -49,11 +51,12 @@ class CalculatorView extends StatelessWidget {
                                     MaterialStateProperty.all<Color>(
                                         Theme.of(context).primaryColor),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                //TODO usuwanie zawartości tabeli kalkulatora
+                              },
                               child: Text("WYCZYŚĆ"),
                             ),
-                            Text('0/2000 kcal',
-                                style: Theme.of(context).textTheme.bodyText1)
+                            KcalCounterWidget(viewModel.kcalCount),
                           ],
                         ),
                       )

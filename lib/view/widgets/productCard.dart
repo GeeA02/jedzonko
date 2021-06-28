@@ -8,17 +8,17 @@ import 'package:jedzonko/view/widgets/addProductDialog.dart';
 import '../productView.dart';
 
 class ProductCard extends StatelessWidget {
-  final Product _product;
+  final ApiProduct _apiProduct;
   var box = CalculatorProductRepository().productListBox;
 
-  ProductCard(this._product);
+  ProductCard(this._apiProduct);
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
       onDismissed: (direction) {
-        box!.delete(_product.hashCode);
+        box!.delete(_apiProduct.hashCode);
         //TODO remove product from list (should work but not tested)
       },
       background: Container(
@@ -46,21 +46,22 @@ class ProductCard extends StatelessWidget {
             icon: Icon(Icons.edit),
             onPressed: () {
               showDialog<void>(
-                  context: context, builder: (context) => AddProductDialog(null));
+                  context: context,
+                  builder: (context) => AddProductDialog(_apiProduct));
             },
           ),
           leading: Container(
             height: 50,
             width: 50,
-            child: _product.imageUrl != null
-                ? Image.network(_product.imageUrl!)
+            child: _apiProduct.product.imageUrl != null
+                ? Image.network(_apiProduct.product.imageUrl!)
                 : Image.asset('assets/images/notFound.jpg'),
           ),
-          title:
-              Text(_product.name, style: Theme.of(context).textTheme.bodyText1),
+          title: Text(_apiProduct.product.name,
+              style: Theme.of(context).textTheme.bodyText1),
           onTap: () {
             Navigator.pushNamed(context, ProductView.routeName,
-                arguments: ApiProduct(_product, null));
+                arguments: _apiProduct);
           },
         ),
       ),

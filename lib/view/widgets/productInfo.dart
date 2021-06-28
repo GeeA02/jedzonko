@@ -19,7 +19,7 @@ class ProductInfo extends StatelessWidget {
                   indicatorColor: Theme.of(context).primaryColor,
                   labelColor: Theme.of(context).textTheme.bodyText1!.color,
                   tabs: [
-                    Tab(text: 'Składniki'),
+                    Tab(text: 'Ogólne'),
                     Tab(text: 'Wartości odżywcze\n na 100g'),
                   ],
                 ),

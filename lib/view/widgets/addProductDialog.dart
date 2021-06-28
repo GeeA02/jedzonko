@@ -1,38 +1,41 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/database/calculator_product_repository.dart';
+import 'package:jedzonko/model/apiProduct.dart';
+import 'package:jedzonko/model/product_calculator.dart';
 import 'package:numberpicker/numberpicker.dart';
 
 class AddProductDialog extends StatefulWidget {
-  final int? _quantity;
-  AddProductDialog(this._quantity);
+  int quantity;
+  final ApiProduct apiProduct;
+  AddProductDialog(this.apiProduct, {this.quantity = 0});
   @override
   _AddProductDialogState createState() => _AddProductDialogState();
 }
 
 class _AddProductDialogState extends State<AddProductDialog> {
-  int _productQuantity = 0;
   var box = CalculatorProductRepository.instance.productListBox;
 
   @override
   Widget build(BuildContext context) {
-    if (widget._quantity != null) _productQuantity = widget._quantity!;
     return AlertDialog(
-      title: Text(
-          widget._quantity != null ? 'Edytuj ilość produktu' : 'Dodaj produkt'),
+      title: Text('Edytuj ilość produktu'),
       content: Form(
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           NumberPicker(
-            value: _productQuantity,
+            value: widget.quantity,
             minValue: 0,
             step: 50,
             maxValue: 1000,
             selectedTextStyle: Theme.of(context).textTheme.headline5,
-            onChanged: (value) => setState(() => _productQuantity = value),
+            onChanged: (value) => setState(() => widget.quantity = value),
           ),
-          Text('Ilość produktu: ${_productQuantity}g'),
+          Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text('Ilość produktu: ${widget.quantity}g'),
+          ),
         ],
       )),
       actions: [
@@ -47,9 +50,10 @@ class _AddProductDialogState extends State<AddProductDialog> {
         ),
         TextButton(
           onPressed: () {
-            // box.put(product.hash(), product)
-            // Jak się tu dostać to do produktu który mam dodać?
-            // TODO dodawanie do bazy kalkulatora (in progress)
+            ProductCalculator product =
+                ProductCalculator(widget.apiProduct, widget.quantity);
+
+            box!.put(product.hashCode, product);
             Navigator.pop(context);
           },
           child: Text('DODAJ',
