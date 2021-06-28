@@ -17,7 +17,7 @@ class ProductView extends StatelessWidget {
             iconTheme:
                 IconThemeData(color: Theme.of(context).primaryColorLight),
             elevation: 0.0,
-            title: Text(args.product.name)),
+            title: Text(args.product.name.toUpperCase())),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
           child: Container(
