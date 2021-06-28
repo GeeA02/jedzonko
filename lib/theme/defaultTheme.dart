@@ -19,6 +19,10 @@ class DefaultTheme with ChangeNotifier {
       dividerColor: CustomColors.SecondaryDarkColor,
       accentColor: CustomColors.SecondaryDarkColor,
       fontFamily: 'Montserrat',
+      textSelectionTheme: ThemeData.dark().textSelectionTheme.copyWith(
+            selectionColor: CustomColors.PrimaryColor,
+            selectionHandleColor: CustomColors.PrimaryColor,
+          ),
       textTheme: ThemeData.dark().textTheme.copyWith(
             headline1: ThemeData.dark().textTheme.headline1!.copyWith(
                   fontSize: 60.0,
@@ -53,6 +57,10 @@ class DefaultTheme with ChangeNotifier {
       cardColor: CustomColors.LightBackgroundColor,
       */
       fontFamily: 'Montserrat',
+      textSelectionTheme: ThemeData.dark().textSelectionTheme.copyWith(
+            selectionColor: CustomColors.PrimaryColor,
+            selectionHandleColor: CustomColors.PrimaryColor,
+          ),
       textTheme: ThemeData.light().textTheme.copyWith(
             headline1: ThemeData.light().textTheme.headline1!.copyWith(
                   fontSize: 60.0,
