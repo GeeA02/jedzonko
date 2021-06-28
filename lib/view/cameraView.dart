@@ -11,7 +11,6 @@ class CameraView extends StatelessWidget {
             child: Padding(
       padding: EdgeInsets.all(30),
       child: Container(
-        //TODO fix the camera state
         child: CameraWidget(),
       ),
     )));

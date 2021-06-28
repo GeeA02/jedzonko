@@ -69,15 +69,14 @@ class _CameraWidgetState extends State<CameraWidget> {
     );
   }
 
-  void checkResult(value) {
+  void checkResult(value) async {
     if (value != null) {
       // navigate to product page
-      Navigator.pushNamed(context, ProductView.routeName, arguments: value);
-    } else {
-      // turn on the camera
-      setState(() {
-        _camState = true;
-      });
+      await Navigator.pushNamed(context, ProductView.routeName,
+          arguments: value);
     }
+    setState(() {
+      _camState = true;
+    });
   }
 }
