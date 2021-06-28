@@ -16,6 +16,8 @@ class DefaultTheme with ChangeNotifier {
       backgroundColor: CustomColors.BackgroundColor,
       cardColor: CustomColors.LightBackgroundColor,
       dialogBackgroundColor: CustomColors.LightBackgroundColor,
+      dividerColor: CustomColors.SecondaryDarkColor,
+      accentColor: CustomColors.SecondaryDarkColor,
       fontFamily: 'Montserrat',
       textTheme: ThemeData.dark().textTheme.copyWith(
             headline1: ThemeData.dark().textTheme.headline1!.copyWith(
@@ -43,6 +45,7 @@ class DefaultTheme with ChangeNotifier {
       selectedRowColor: CustomColors.SearchbarColor,
       errorColor: CustomColors.ErrorColor,
       backgroundColor: CustomColors.HintColor,
+      dividerColor: CustomColors.SecondaryDarkColor,
       /*
       canvasColor: CustomColors.BackgroundColor,
       scaffoldBackgroundColor: CustomColors.BackgroundColor,
