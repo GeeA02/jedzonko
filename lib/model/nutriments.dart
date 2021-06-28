@@ -748,4 +748,10 @@ class Nutriments {
         ph100g.hashCode ^
         fruitsvegetablesnuts100g.hashCode;
   }
+
+  List<String> toList() {
+    List<String> tmpList = this.toString().split(',');
+    tmpList.removeWhere((element) => element.contains('null'));
+    return tmpList;
+  }
 }
