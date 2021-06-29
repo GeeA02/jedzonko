@@ -2,7 +2,7 @@ import 'package:http/http.dart' as http;
 import 'package:jedzonko/model/apiproduct.dart';
 import 'dart:convert';
 import 'package:jedzonko/model/nutriments.dart';
-import 'package:jedzonko/model/product.dart';
+import 'package:jedzonko/model/productInfo.dart';
 
 class API {
   static Future<ApiProduct> fetchApiProduct(String barcode) async {
@@ -16,8 +16,10 @@ class API {
           //tu trzeba coś innego przygotować pewnie xd
           throw Exception('Produktu nie ma w bazie');
         } else {
-          return ApiProduct(Product.fromJson(jsonEncode(json)),
-              Nutriments.fromMap(json['product']['nutriments']));
+          return ApiProduct(
+              ProductInfo.fromJson(jsonEncode(json)),
+              Nutriments.fromMap(json['product']['nutriments']),
+              json['product']['nutriscore_grade']);
         }
       } else {
         // If the server did not return a 200 OK response,

@@ -2,7 +2,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/model/product.dart';
+import 'package:jedzonko/model/productInfo.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
 
 import '../productView.dart';

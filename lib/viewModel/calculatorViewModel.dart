@@ -1,6 +1,6 @@
 import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/model/product.dart';
+import 'package:jedzonko/model/productInfo.dart';
 
 class CalculatorViewModel {
   // Singleton CalculatorViewModel implemetentation
@@ -19,14 +19,15 @@ class CalculatorViewModel {
 
   List<ApiProduct> _tmp = [
     ApiProduct(
-        Product(
+        ProductInfo(
             null,
             "Mleko",
             "https://static.openfoodfacts.org/images/products/590/082/000/0011/front_pl.39.400.jpg",
             DateTime.now()),
+        null,
         null),
-    ApiProduct(Product(null, "Chleb", null, DateTime.now()), null),
-    ApiProduct(Product(null, "Majonez", null, DateTime.now()), null)
+    ApiProduct(ProductInfo(null, "Chleb", null, DateTime.now()), null, null),
+    ApiProduct(ProductInfo(null, "Majonez", null, DateTime.now()), null, null)
   ];
 
   /*
