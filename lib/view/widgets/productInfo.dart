@@ -5,7 +5,8 @@ import 'package:jedzonko/model/nutriments.dart';
 class ProductInfo extends StatelessWidget {
   final Nutriments? _nutriments;
   late final List<List<String>>? _nutrimentsList;
-  ProductInfo(this._nutriments) {
+  late final String? _nutriScore;
+  ProductInfo(this._nutriments, this._nutriScore) {
     if (_nutriments != null) _nutrimentsList = _nutriments!.toList();
   }
 
@@ -34,22 +35,31 @@ class ProductInfo extends StatelessWidget {
                         border: Border(
                             top: BorderSide(color: Colors.grey, width: 0.5))),
                     child: TabBarView(children: <Widget>[
-                      _nutriments != null
+                      _nutriScore != null
                           ? Container(
                               // info about nutriscore
                               child: Center(
-                                child: Text('Display Tab 1',
-                                    style: TextStyle(
-                                        fontSize: 22,
-                                        fontWeight: FontWeight.bold)),
+                                child: Image.asset(
+                                    'assets/images/Nutri-score-${_nutriScore!.toUpperCase()}.png'),
                               ),
                             )
                           : Center(
-                              child: Icon(
-                                Icons
-                                    .signal_wifi_connected_no_internet_4_rounded,
-                                size: 100,
-                                color: Theme.of(context).primaryColor,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.dnd_forwardslash_outlined,
+                                    size: 100,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text('Brak danych',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline4),
+                                  ),
+                                ],
                               ),
                             ),
                       _nutriments != null
@@ -92,11 +102,22 @@ class ProductInfo extends StatelessWidget {
                               ),
                             )
                           : Center(
-                              child: Icon(
-                                Icons
-                                    .signal_wifi_connected_no_internet_4_rounded,
-                                size: 100,
-                                color: Theme.of(context).primaryColor,
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Icon(
+                                    Icons.dnd_forwardslash_outlined,
+                                    size: 100,
+                                    color: Theme.of(context).primaryColor,
+                                  ),
+                                  Padding(
+                                    padding: const EdgeInsets.all(8.0),
+                                    child: Text('Brak danych',
+                                        style: Theme.of(context)
+                                            .textTheme
+                                            .headline4),
+                                  ),
+                                ],
                               ),
                             ),
                     ])),

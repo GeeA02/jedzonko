@@ -33,7 +33,7 @@ class ProductView extends StatelessWidget {
                       ? Image.network(apiProduct.product.imageUrl!)
                       : Image.asset('assets/images/notFound.jpg'),
                 ),
-                Expanded(child: ProductInfo(apiProduct.nutriments)),
+                Expanded(child: ProductInfo(apiProduct.nutriments, apiProduct.nutriscore)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   mainAxisSize: MainAxisSize.max,

@@ -71,6 +71,7 @@ class _CameraWidgetState extends State<CameraWidget> {
 
   void checkResult(value) async {
     if (value != null) {
+      //TODO save product in history table
       // navigate to product page
       await Navigator.pushNamed(context, ProductView.routeName,
           arguments: value);
