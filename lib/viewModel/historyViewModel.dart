@@ -1,29 +1,29 @@
-import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/model/productInfo.dart';
+import 'package:hive/hive.dart';
+import 'package:jedzonko/database/history_product_repository.dart';
+import 'package:jedzonko/model/productHistory.dart';
 
 class HistoryViewModel {
-  late List<ApiProduct> tmpProducts;
+  final Box<ProductHistory> _box =
+      HistoryProductRepository().productListBox!;
+  static final HistoryViewModel _historyViewModel =
+      HistoryViewModel._internal();
+  HistoryViewModel._internal();
+  factory HistoryViewModel() {
+    return _historyViewModel;
+  }
 
-  HistoryViewModel() {
-    tmpProducts = [
-      ApiProduct(
-          ProductInfo(
-              null,
-              "Mleko",
-              "https://static.openfoodfacts.org/images/products/590/082/000/0011/front_pl.39.400.jpg",
-              DateTime.now()),
-          null,
-          null),
-      ApiProduct(ProductInfo(null, "Chleb", null, DateTime.now()), null, null),
-      ApiProduct(
-          ProductInfo(
-              null,
-              "Kawa",
-              "https://static.openfoodfacts.org/images/products/590/115/404/2746/front_pl.4.400.jpg",
-              DateTime.now()),
-          null,
-          null),
-      ApiProduct(ProductInfo(null, "Majonez", null, DateTime.now()), null, null)
-    ];
+  Box<ProductHistory> get box => _box;
+  List<ProductHistory> get productList => _box.values.toList();
+  
+  void addProduct(ProductHistory product) {
+    _box.put(product.id, product);
+  }
+
+  void deleteProduct(ProductHistory product) {
+    _box.delete(product.id);
+  }
+
+  void deleteAllProducts(){
+    _box.deleteAll(_box.keys);
   }
 }

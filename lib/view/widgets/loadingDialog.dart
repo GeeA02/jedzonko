@@ -30,7 +30,7 @@ class LoadingDialog extends StatelessWidget {
                 // pop with returning APIProduct
                 Timer(Duration(milliseconds: 1000), () {
                   Navigator.of(context, rootNavigator: true).pop(ApiProduct(
-                      snapshot.data.product,
+                      snapshot.data.productInfo,
                       snapshot.data.nutriments,
                       snapshot.data.nutriscore));
                 });

@@ -1,25 +1,24 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jedzonko/database/calculator_product_repository.dart';
-import 'package:jedzonko/model/apiProduct.dart';
-import 'package:jedzonko/model/productInfo.dart';
+import 'package:jedzonko/model/product_calculator.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
+import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 import '../productView.dart';
 
+// ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
-  final ApiProduct _apiProduct;
-  var box = CalculatorProductRepository().productListBox;
+  final ProductCalculator _product;
+  var viewModel = CalculatorViewModel();
 
-  ProductCard(this._apiProduct);
+  ProductCard(this._product);
 
   @override
   Widget build(BuildContext context) {
     return Dismissible(
       key: UniqueKey(),
       onDismissed: (direction) {
-        box!.delete(_apiProduct.hashCode);
-        //TODO remove product from list (should work but not tested)
+        viewModel.deleteProduct(_product);
       },
       background: Container(
         color: Theme.of(context).errorColor,
@@ -47,21 +46,21 @@ class ProductCard extends StatelessWidget {
             onPressed: () {
               showDialog<void>(
                   context: context,
-                  builder: (context) => AddProductDialog(_apiProduct));
+                  builder: (context) => AddProductDialog(_product));
             },
           ),
           leading: Container(
             height: 50,
             width: 50,
-            child: _apiProduct.product.imageUrl != null
-                ? Image.network(_apiProduct.product.imageUrl!)
+            child: _product.productInfo.imageUrl != null
+                ? Image.network(_product.productInfo.imageUrl!)
                 : Image.asset('assets/images/notFound.jpg'),
           ),
-          title: Text(_apiProduct.product.name,
+          title: Text(_product.productInfo.name,
               style: Theme.of(context).textTheme.bodyText1),
           onTap: () {
             Navigator.pushNamed(context, ProductView.routeName,
-                arguments: _apiProduct);
+                arguments: _product);
           },
         ),
       ),

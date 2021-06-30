@@ -1,7 +1,9 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
+import 'package:jedzonko/model/productHistory.dart';
 import 'package:jedzonko/view/widgets/loadingDialog.dart';
+import 'package:jedzonko/viewModel/historyViewModel.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 
 import '../productView.dart';
@@ -70,8 +72,9 @@ class _CameraWidgetState extends State<CameraWidget> {
   }
 
   void checkResult(value) async {
-    if (value != null) {
-      //TODO save product in history table
+    if (value.runtimeType == ApiProduct) {
+      //TODO (test) save product in history table
+      HistoryViewModel().addProduct(ProductHistory(value.productInfo, value.productInfo.barcode));
       // navigate to product page
       await Navigator.pushNamed(context, ProductView.routeName,
           arguments: value);

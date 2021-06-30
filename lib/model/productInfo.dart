@@ -1,11 +1,19 @@
 import 'dart:convert';
 
+import 'package:hive/hive.dart';
 import 'package:intl/intl.dart';
 
+part 'productInfo.g.dart';
+
+@HiveType(typeId: 3)
 class ProductInfo {
+  @HiveField(0)
   String? barcode;
+  @HiveField(1)
   String name;
+  @HiveField(2)
   String? imageUrl;
+  @HiveField(3)
   DateTime _date;
 
   String getDate() {

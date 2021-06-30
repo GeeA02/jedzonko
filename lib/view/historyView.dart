@@ -3,7 +3,6 @@ import 'package:jedzonko/view/widgets/historyPorductCard.dart';
 import 'package:jedzonko/viewModel/historyViewModel.dart';
 
 class HistoryView extends StatelessWidget {
-  HistoryView({Key? key}) : super(key: key);
   final HistoryViewModel viewModel = HistoryViewModel();
 
   @override
@@ -24,10 +23,10 @@ class HistoryView extends StatelessWidget {
               children: <Widget>[
                 Expanded(
                     child: ListView.builder(
-                        itemCount: viewModel.tmpProducts.length,
+                        itemCount: viewModel.productList.length,
                         itemBuilder: (context, index) {
                           return HistoryProductCard(
-                              viewModel.tmpProducts[index]);
+                              viewModel.productList[index]);
                         }))
               ]),
         )));

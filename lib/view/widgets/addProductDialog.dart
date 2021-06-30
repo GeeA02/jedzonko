@@ -1,14 +1,13 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/database/calculator_product_repository.dart';
-import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product_calculator.dart';
 import 'package:numberpicker/numberpicker.dart';
 
+// ignore: must_be_immutable
 class AddProductDialog extends StatefulWidget {
-  int quantity;
-  final ApiProduct apiProduct;
-  AddProductDialog(this.apiProduct, {this.quantity = 0});
+  final ProductCalculator _product;
+  AddProductDialog(this._product);
   @override
   _AddProductDialogState createState() => _AddProductDialogState();
 }
@@ -19,7 +18,7 @@ class _AddProductDialogState extends State<AddProductDialog> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: widget.quantity.toString());
+    _controller = TextEditingController(text: widget._product.quantity.toString());
   }
 
   var box = CalculatorProductRepository.instance.productListBox;
@@ -32,13 +31,13 @@ class _AddProductDialogState extends State<AddProductDialog> {
         mainAxisSize: MainAxisSize.min,
         children: [
           NumberPicker(
-            value: widget.quantity,
+            value: widget._product.quantity,
             minValue: 0,
             step: 50,
             maxValue: 1000,
             selectedTextStyle: Theme.of(context).textTheme.headline5,
             onChanged: (value) => setState(() {
-              widget.quantity = value;
+              widget._product.quantity = value;
               _controller.text = value.toString();
             }),
           ),
@@ -90,9 +89,7 @@ class _AddProductDialogState extends State<AddProductDialog> {
           onPressed: () {
             int? countValue = int.tryParse(_controller.text);
             if (countValue != null) {
-              ProductCalculator product =
-                  ProductCalculator(widget.apiProduct, countValue);
-              box!.put(product.hashCode, product);
+              box!.put(widget._product.id, widget._product);
               Navigator.pop(context);
             }
           },

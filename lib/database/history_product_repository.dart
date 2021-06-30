@@ -1,8 +1,8 @@
 import 'package:hive/hive.dart';
-import 'package:jedzonko/model/apiProduct.dart';
+import 'package:jedzonko/model/productHistory.dart';
 
 class HistoryProductRepository {
-  Box<ApiProduct>? productListBox;
+  Box<ProductHistory>? productListBox;
 
   HistoryProductRepository._privateCostructor();
   static final HistoryProductRepository _instance = HistoryProductRepository._privateCostructor();
@@ -11,7 +11,7 @@ class HistoryProductRepository {
     return _instance;
   }
   static HistoryProductRepository get instance => _instance;
-  setBox(Box<ApiProduct> box){
+  setBox(Box<ProductHistory> box){
     productListBox = box;
   }
 }

@@ -1,27 +1,21 @@
-import 'package:jedzonko/model/apiProduct.dart';
+import 'package:hive/hive.dart';
 import 'package:jedzonko/model/productInfo.dart';
-import 'package:jedzonko/model/nutriments.dart';
+part 'product_calculator.g.dart';
 
-class ProductCalculator extends ApiProduct {
-  ProductCalculator.fromRawData(ProductInfo product, Nutriments? nutriments,
-      String? nutriscore, this.quantity)
-      : super(product, nutriments, nutriscore);
-  ProductCalculator(ApiProduct product, this.quantity)
-      : super(product.product, product.nutriments, product.nutriscore);
-
+@HiveType(typeId: 2)
+class ProductCalculator {
+  ProductCalculator(this.productInfo, this.quantity, this.kcal, this.id);
+  
+  @HiveField(0)
+  ProductInfo productInfo;
+ 
+  @HiveField(1)
   int quantity;
 
-  int get id => super.hashCode;
+  @HiveField(2)
+  String id;
 
-  @override
-  int get hashCode => super.hashCode ^ quantity.hashCode;
+  @HiveField(3)
+  int kcal;
 
-  @override
-  bool operator ==(Object other) {
-    if (identical(this, other)) return true;
-    return other is ProductCalculator &&
-        other.quantity == quantity &&
-        other.nutriments == super.nutriments &&
-        other.product == super.product;
-  }
 }

@@ -1,15 +1,16 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jedzonko/model/apiProduct.dart';
+import 'package:jedzonko/model/productHistory.dart';
 
 import '../productView.dart';
 
 class HistoryProductCard extends StatelessWidget {
-  final ApiProduct _apiProduct;
+  final ProductHistory _apiProduct;
   HistoryProductCard(this._apiProduct);
 
   @override
   Widget build(BuildContext context) {
+    
     return Card(
       elevation: 5,
       color: Theme.of(context).cardColor,
@@ -18,17 +19,17 @@ class HistoryProductCard extends StatelessWidget {
         leading: Container(
           height: 50,
           width: 50,
-          child: _apiProduct.product.imageUrl != null
-              ? Image.network(_apiProduct.product.imageUrl!)
+          child: _apiProduct.productInfo.imageUrl != null
+              ? Image.network(_apiProduct.productInfo.imageUrl!)
               : Image.asset('assets/images/notFound.jpg'),
         ),
-        title: Text(_apiProduct.product.name,
+        title: Text(_apiProduct.productInfo.name,
             style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
           Navigator.pushNamed(context, ProductView.routeName,
               arguments: _apiProduct);
         },
-        subtitle: Text(_apiProduct.product.getDate()),
+        subtitle: Text(_apiProduct.productInfo.getDate()),
       ),
     );
   }

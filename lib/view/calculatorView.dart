@@ -1,5 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/database/calculator_product_repository.dart';
 import 'package:jedzonko/view/widgets/kcalConuterWidget.dart';
 import 'package:jedzonko/view/widgets/productCard.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
@@ -9,7 +8,7 @@ class CalculatorView extends StatelessWidget {
 
   // Initializing viewModel with repository singleton instance
   final CalculatorViewModel viewModel =
-      CalculatorViewModel(repository: CalculatorProductRepository());
+      CalculatorViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -33,10 +32,10 @@ class CalculatorView extends StatelessWidget {
                       ),
                       Expanded(
                           child: ListView.builder(
-                              itemCount: viewModel.tmpProducts.length,
+                              itemCount: viewModel.productList.length,
                               itemBuilder: (context, index) {
                                 return ProductCard(
-                                    viewModel.tmpProducts[index]);
+                                    viewModel.productList[index]);
                               })),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -52,7 +51,7 @@ class CalculatorView extends StatelessWidget {
                                         Theme.of(context).primaryColor),
                               ),
                               onPressed: () {
-                                //TODO usuwanie zawartości tabeli kalkulatora
+                                viewModel.deleteAllProducts();
                               },
                               child: Text("WYCZYŚĆ"),
                             ),
