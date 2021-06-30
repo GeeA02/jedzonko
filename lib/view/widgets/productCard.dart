@@ -62,6 +62,7 @@ class ProductCard extends StatelessWidget {
           onTap: () {
             // show loading dialog, and return result from api or null if error occurs
             Future<ApiProduct?> result = showDialog<ApiProduct?>(
+              barrierDismissible: false,
               context: context,
               builder: (context) => LoadingDialog(_product.productInfo.barcode),
               useRootNavigator: false,

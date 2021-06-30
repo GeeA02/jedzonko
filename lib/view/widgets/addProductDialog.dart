@@ -18,14 +18,19 @@ class _AddProductDialogState extends State<AddProductDialog> {
   @override
   void initState() {
     super.initState();
-    _controller = TextEditingController(text: widget._product.quantity.toString());
+    _controller =
+        TextEditingController(text: widget._product.quantity.toString());
   }
 
   var box = CalculatorProductRepository.instance.productListBox;
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Edytuj ilość produktu'),
+      title: Text(
+        'Wybierz ilość',
+        style: Theme.of(context).textTheme.headline4,
+        textAlign: TextAlign.center,
+      ),
       content: Form(
           child: Column(
         mainAxisSize: MainAxisSize.min,

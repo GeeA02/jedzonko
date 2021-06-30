@@ -45,6 +45,7 @@ class _CameraWidgetState extends State<CameraWidget> {
                 });
                 // show loading dialog, and return result from api or null if error occurs
                 Future<ApiProduct?> result = showDialog<ApiProduct?>(
+                  barrierDismissible: false,
                   context: context,
                   builder: (context) => LoadingDialog(barcode!),
                   useRootNavigator: false,
@@ -74,7 +75,8 @@ class _CameraWidgetState extends State<CameraWidget> {
   void checkResult(value) async {
     if (value.runtimeType == ApiProduct) {
       //TODO (test) save product in history table
-      HistoryViewModel().addProduct(ProductHistory(value.productInfo, value.productInfo.barcode));
+      HistoryViewModel().addProduct(
+          ProductHistory(value.productInfo, value.productInfo.barcode));
       // navigate to product page
       await Navigator.pushNamed(context, ProductView.routeName,
           arguments: value);
