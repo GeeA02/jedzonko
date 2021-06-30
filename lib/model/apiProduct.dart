@@ -2,13 +2,11 @@ import 'package:jedzonko/model/nutriments.dart';
 import 'package:jedzonko/model/productInfo.dart';
 import 'package:hive/hive.dart';
 
-@HiveType(typeId: 1)
-class ApiProduct extends HiveObject {
-  @HiveField(0)
+
+class ApiProduct {
+
   ProductInfo? productInfo;
-  @HiveField(1)
   Nutriments? nutriments;
-  @HiveField(2)
   String? nutriscore;
 
   ApiProduct.empty();
