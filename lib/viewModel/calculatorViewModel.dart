@@ -7,22 +7,24 @@ class CalculatorViewModel {
 
   final Box<ProductCalculator> _box =
       CalculatorProductRepository().productListBox!;
-  
+
   static final CalculatorViewModel _calculatorViewModel =
       CalculatorViewModel._internal();
   CalculatorViewModel._internal();
-  
+
   factory CalculatorViewModel() {
     return _calculatorViewModel;
   }
 
   Box<ProductCalculator> get box => _box;
-  
+
+  Stream<BoxEvent> get productsStream => _box.watch();
+
   List<ProductCalculator> get productList => _box.values.toList();
-  
+
   int get kcalCount {
     int allCal = 0;
-    productList.forEach((el) => allCal += (el.kcal * (el.quantity~/100)));
+    productList.forEach((el) => allCal += (el.kcal * (el.quantity ~/ 100)));
     return allCal;
   }
 

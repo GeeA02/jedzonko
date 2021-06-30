@@ -97,8 +97,10 @@ class _AddProductDialogState extends State<AddProductDialog> {
               box!.put(widget._product.id, widget._product);
               Navigator.pop(context);
 
-              ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Dodano produkt do kalkulatora!')));
+              ScaffoldMessenger.of(context).showSnackBar(SnackBar(
+                content: Text('Dodano produkt do kalkulatora!'),
+                behavior: SnackBarBehavior.floating,
+              ));
             }
           },
           child: Text('DODAJ',
