@@ -7,18 +7,25 @@ class CalculatorViewModel {
 
   final Box<ProductCalculator> _box =
       CalculatorProductRepository().productListBox!;
+  
   static final CalculatorViewModel _calculatorViewModel =
       CalculatorViewModel._internal();
   CalculatorViewModel._internal();
+  
   factory CalculatorViewModel() {
     return _calculatorViewModel;
   }
 
   Box<ProductCalculator> get box => _box;
-  List<ProductCalculator> get productList => _box.values.toList();
-  int get kcalCount => productList.length;
-
   
+  List<ProductCalculator> get productList => _box.values.toList();
+  
+  int get kcalCount {
+    int allCal = 0;
+    productList.forEach((el) => allCal += (el.kcal * (el.quantity~/100)));
+    return allCal;
+  }
+
   void addProduct(ProductCalculator product) {
     _box.put(product.id, product);
   }
@@ -27,20 +34,7 @@ class CalculatorViewModel {
     _box.delete(product.id);
   }
 
-  void deleteAllProducts(){
+  void deleteAllProducts() {
     _box.deleteAll(_box.keys);
   }
-
-  /*
-  CalculatorViewModel() {
-    tmpProducts = [
-      Product(
-          null,
-          "Mleko",
-          "https://static.openfoodfacts.org/images/products/590/082/000/0011/front_pl.39.400.jpg",
-          DateTime.now()),
-      Product(null, "Chleb", null, DateTime.now()),
-      Product(null, "Majonez", null, DateTime.now())
-    ];
-  }*/
 }
