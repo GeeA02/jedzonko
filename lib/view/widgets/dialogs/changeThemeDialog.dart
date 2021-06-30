@@ -8,13 +8,14 @@ class ChangeThemeDialog extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return AlertDialog(
-      title: Text('Zmień motyw'),
+      title: Text('Zmień motyw', style: Theme.of(context).textTheme.headline4),
       content: Form(
           child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
           RadioListTile(
-            title: Text('Jasny motyw'),
+            title: Text('Jasny motyw',
+                style: Theme.of(context).textTheme.subtitle1),
             value: ThemeMode.light,
             groupValue: currentTheme.currentTheme,
             onChanged: (value) {
@@ -24,7 +25,8 @@ class ChangeThemeDialog extends StatelessWidget {
             activeColor: Theme.of(context).primaryColor,
           ),
           RadioListTile(
-            title: Text('Ciemny motyw'),
+            title: Text('Ciemny motyw',
+                style: Theme.of(context).textTheme.subtitle1),
             value: ThemeMode.dark,
             groupValue: currentTheme.currentTheme,
             onChanged: (value) {

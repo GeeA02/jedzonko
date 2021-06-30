@@ -3,7 +3,6 @@ import 'package:jedzonko/theme/config.dart';
 import 'package:jedzonko/view/historyView.dart';
 import 'package:jedzonko/view/mainView.dart';
 import 'package:jedzonko/theme/defaultTheme.dart';
-import 'package:jedzonko/view/productErrorView.dart';
 import 'package:jedzonko/view/productView.dart';
 
 class App extends StatefulWidget {
@@ -35,7 +34,6 @@ class _AppState extends State {
         '/': (context) => MainView(),
         '/history': (context) => HistoryView(),
         ProductView.routeName: (context) => ProductView(),
-        ProductErrorView.routeName: (context) => ProductErrorView(),
       },
     );
   }

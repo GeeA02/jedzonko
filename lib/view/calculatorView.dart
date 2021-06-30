@@ -1,10 +1,14 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/widgets/productCard.dart';
+import 'package:jedzonko/view/widgets/cards/productCard.dart';
+import 'package:jedzonko/view/widgets/kcalConuterWidget.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 class CalculatorView extends StatelessWidget {
   CalculatorView({Key? key}) : super(key: key);
-  final CalculatorViewModel viewModel = CalculatorViewModel();
+
+  // Initializing viewModel with repository singleton instance
+  final CalculatorViewModel viewModel =
+      CalculatorViewModel();
 
   @override
   Widget build(BuildContext context) {
@@ -28,10 +32,10 @@ class CalculatorView extends StatelessWidget {
                       ),
                       Expanded(
                           child: ListView.builder(
-                              itemCount: viewModel.tmpProducts.length,
+                              itemCount: viewModel.productList.length,
                               itemBuilder: (context, index) {
                                 return ProductCard(
-                                    viewModel.tmpProducts[index]);
+                                    viewModel.productList[index]);
                               })),
                       Padding(
                         padding: const EdgeInsets.symmetric(vertical: 20),
@@ -46,11 +50,12 @@ class CalculatorView extends StatelessWidget {
                                     MaterialStateProperty.all<Color>(
                                         Theme.of(context).primaryColor),
                               ),
-                              onPressed: () {},
+                              onPressed: () {
+                                viewModel.deleteAllProducts();
+                              },
                               child: Text("WYCZYŚĆ"),
                             ),
-                            Text('0/2000 kcal',
-                                style: Theme.of(context).textTheme.bodyText1)
+                            KcalCounterWidget(viewModel.kcalCount),
                           ],
                         ),
                       )

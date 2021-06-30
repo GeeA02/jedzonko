@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:jedzonko/view/widgets/dialogs/resetDialog.dart';
 
-import 'changeThemeDialog.dart';
+import 'dialogs/changeThemeDialog.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({
@@ -48,6 +49,22 @@ class SideMenu extends StatelessWidget {
           onTap: () {
             showDialog<void>(
                 context: context, builder: (context) => ChangeThemeDialog());
+          },
+        ),
+        Divider(
+          height: 1,
+          thickness: 1,
+          color: Theme.of(context).accentColor.withOpacity(0.4),
+        ),
+        ListTile(
+          leading: Icon(
+            Icons.restart_alt,
+            color: Theme.of(context).primaryColor.withOpacity(0.7),
+          ),
+          title: Text('RESET'),
+          onTap: () {
+            showDialog<void>(
+                context: context, builder: (context) => ResetDialog());
           },
         ),
       ]),
