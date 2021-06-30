@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/widgets/historyPorductCard.dart';
+import 'package:jedzonko/view/widgets/cards/historyPorductCard.dart';
 import 'package:jedzonko/viewModel/historyViewModel.dart';
 
 class HistoryView extends StatelessWidget {

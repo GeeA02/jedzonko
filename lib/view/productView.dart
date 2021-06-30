@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product_calculator.dart';
-import 'package:jedzonko/view/widgets/addProductDialog.dart';
-import 'package:jedzonko/view/widgets/productInfo.dart';
+import 'package:jedzonko/view/widgets/dialogs/addProductDialog.dart';
+import 'package:jedzonko/view/widgets/productInfoWidget.dart';
 
 class ProductView extends StatelessWidget {
   static const routeName = '/product';
@@ -36,7 +36,7 @@ class ProductView extends StatelessWidget {
                       : Image.asset('assets/images/notFound.jpg'),
                 ),
                 Expanded(
-                    child: ProductInfo(
+                    child: ProductInfoWidget(
                         apiProduct.nutriments, apiProduct.nutriscore)),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,

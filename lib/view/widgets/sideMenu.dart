@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:jedzonko/view/widgets/resetDialog.dart';
+import 'package:jedzonko/view/widgets/dialogs/resetDialog.dart';
 
-import 'changeThemeDialog.dart';
+import 'dialogs/changeThemeDialog.dart';
 
 class SideMenu extends StatelessWidget {
   const SideMenu({

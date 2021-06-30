@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/nutriments.dart';
 
-class ProductInfo extends StatelessWidget {
+class ProductInfoWidget extends StatelessWidget {
   final Nutriments? _nutriments;
   late final List<List<String>>? _nutrimentsList;
   late final String? _nutriScore;
-  ProductInfo(this._nutriments, this._nutriScore) {
+  ProductInfoWidget(this._nutriments, this._nutriScore) {
     if (_nutriments != null) _nutrimentsList = _nutriments!.toList();
   }
 

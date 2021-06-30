@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/productHistory.dart';
-import 'package:jedzonko/view/widgets/loadingDialog.dart';
 import 'package:jedzonko/viewModel/historyViewModel.dart';
 import 'package:qr_mobile_vision/qr_camera.dart';
 
 import '../productView.dart';
+import 'dialogs/loadingDialog.dart';
 
 class CameraWidget extends StatefulWidget {
   @override

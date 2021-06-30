@@ -2,10 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/productHistory.dart';
+import 'package:jedzonko/view/widgets/dialogs/loadingDialog.dart';
 import 'package:jedzonko/viewModel/historyViewModel.dart';
 
-import '../productView.dart';
-import 'loadingDialog.dart';
+import '../../productView.dart';
+
 
 class HistoryProductCard extends StatelessWidget {
   final ProductHistory _apiProduct;

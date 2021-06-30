@@ -2,11 +2,11 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product_calculator.dart';
-import 'package:jedzonko/view/widgets/addProductDialog.dart';
+import 'package:jedzonko/view/widgets/dialogs/addProductDialog.dart';
+import 'package:jedzonko/view/widgets/dialogs/loadingDialog.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
-import '../productView.dart';
-import 'loadingDialog.dart';
+import '../../productView.dart';
 
 class ProductCard extends StatelessWidget {
   final ProductCalculator _product;
