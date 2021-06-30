@@ -32,7 +32,7 @@ class HistoryProductCard extends StatelessWidget {
           Future<ApiProduct?> result = showDialog<ApiProduct?>(
             context: context,
             builder: (context) =>
-                LoadingDialog(_apiProduct.productInfo.barcode!),
+                LoadingDialog(_apiProduct.productInfo.barcode),
             useRootNavigator: false,
           );
 
@@ -45,7 +45,7 @@ class HistoryProductCard extends StatelessWidget {
 
   void checkResult(value, context) async {
     if (value.runtimeType == ApiProduct) {
-      //TODO (test) save product in history table
+      //TODO (test) save product in history table, czy w tym miejscu ponawiamy to zapisywanie?
       HistoryViewModel().addProduct(
           ProductHistory(value.productInfo, value.productInfo.barcode));
       // navigate to product page

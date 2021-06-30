@@ -1,15 +1,10 @@
 import 'package:jedzonko/model/nutriments.dart';
 import 'package:jedzonko/model/productInfo.dart';
-import 'package:hive/hive.dart';
-
 
 class ApiProduct {
-
-  ProductInfo? productInfo;
+  ProductInfo productInfo;
   Nutriments? nutriments;
   String? nutriscore;
-
-  ApiProduct.empty();
 
   ApiProduct(this.productInfo, this.nutriments, this.nutriscore);
 

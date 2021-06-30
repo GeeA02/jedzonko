@@ -19,7 +19,7 @@ class ProductView extends StatelessWidget {
             iconTheme:
                 IconThemeData(color: Theme.of(context).primaryColorLight),
             elevation: 0.0,
-            title: Text(apiProduct.productInfo!.name.toUpperCase())),
+            title: Text(apiProduct.productInfo.name.toUpperCase())),
         body: Padding(
           padding: const EdgeInsets.symmetric(vertical: 16.0, horizontal: 8.0),
           child: Container(
@@ -31,8 +31,8 @@ class ProductView extends StatelessWidget {
                 Container(
                   height: 200,
                   padding: const EdgeInsets.all(16.0),
-                  child: apiProduct.productInfo!.imageUrl != null
-                      ? Image.network(apiProduct.productInfo!.imageUrl!)
+                  child: apiProduct.productInfo.imageUrl != null
+                      ? Image.network(apiProduct.productInfo.imageUrl!)
                       : Image.asset('assets/images/notFound.jpg'),
                 ),
                 Expanded(
@@ -57,7 +57,7 @@ class ProductView extends StatelessWidget {
                                 context: context,
                                 builder: (context) {
                                   // TODO obecne api zmusza mnie do takich cudów:
-                                  // To nie będzie działać jeżeli wszystkie membersy będą nulami nwm czy to sprawdzasz 
+                                  // To nie będzie działać jeżeli wszystkie membersy będą nulami nwm czy to sprawdzasz
                                   // Gabi na wcześniejszych etapach
                                   late ProductCalculator tmp;
 
@@ -66,20 +66,20 @@ class ProductView extends StatelessWidget {
                                     int kcal = int.parse(
                                         apiProduct.nutriments!.energykcal100g!);
                                     tmp = ProductCalculator(
-                                        apiProduct.productInfo!,
+                                        apiProduct.productInfo,
                                         0,
                                         kcal,
-                                        apiProduct.productInfo!.barcode!);
+                                        apiProduct.productInfo.barcode);
                                   } else if (apiProduct
                                           .nutriments?.energy100g !=
                                       null) {
                                     int kcal = int.parse(
                                         apiProduct.nutriments!.energy100g!);
                                     tmp = ProductCalculator(
-                                        apiProduct.productInfo!,
+                                        apiProduct.productInfo,
                                         0,
                                         kcal,
-                                        apiProduct.productInfo!.barcode!);
+                                        apiProduct.productInfo.barcode);
                                   }
                                   print(tmp);
                                   return AddProductDialog(tmp);

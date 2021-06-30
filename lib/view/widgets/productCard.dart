@@ -8,10 +8,9 @@ import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 import '../productView.dart';
 import 'loadingDialog.dart';
 
-// ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
   final ProductCalculator _product;
-  var viewModel = CalculatorViewModel();
+  final viewModel = CalculatorViewModel();
 
   ProductCard(this._product);
 
@@ -64,8 +63,7 @@ class ProductCard extends StatelessWidget {
             // show loading dialog, and return result from api or null if error occurs
             Future<ApiProduct?> result = showDialog<ApiProduct?>(
               context: context,
-              builder: (context) =>
-                  LoadingDialog(_product.productInfo.barcode!),
+              builder: (context) => LoadingDialog(_product.productInfo.barcode),
               useRootNavigator: false,
             );
 

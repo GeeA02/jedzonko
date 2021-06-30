@@ -8,7 +8,7 @@ part 'productInfo.g.dart';
 @HiveType(typeId: 3)
 class ProductInfo {
   @HiveField(0)
-  String? barcode;
+  String barcode;
   @HiveField(1)
   String name;
   @HiveField(2)
