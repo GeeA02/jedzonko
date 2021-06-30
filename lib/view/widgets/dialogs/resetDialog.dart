@@ -1,6 +1,5 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-import 'package:jedzonko/theme/config.dart';
 import 'package:jedzonko/viewModel/restViewModel.dart';
 
 class ResetDialog extends StatelessWidget {

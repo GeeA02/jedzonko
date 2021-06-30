@@ -47,7 +47,6 @@ class HistoryProductCard extends StatelessWidget {
 
   void checkResult(value, context) async {
     if (value.runtimeType == ApiProduct) {
-      //TODO (test) save product in history table, czy w tym miejscu ponawiamy to zapisywanie?
       HistoryViewModel().addProduct(
           ProductHistory(value.productInfo, value.productInfo.barcode));
       // navigate to product page

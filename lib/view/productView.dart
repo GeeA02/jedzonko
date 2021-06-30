@@ -10,7 +10,6 @@ class ProductView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    // TODO Przejście z widoku kalkulatora do produktu się tutaj wysypuje
     final ApiProduct apiProduct =
         ModalRoute.of(context)!.settings.arguments as ApiProduct;
 
@@ -57,8 +56,6 @@ class ProductView extends StatelessWidget {
                                 context: context,
                                 builder: (context) {
                                   // TODO obecne api zmusza mnie do takich cudów:
-                                  // To nie będzie działać jeżeli wszystkie membersy będą nulami nwm czy to sprawdzasz
-                                  // Gabi na wcześniejszych etapach
                                   late ProductCalculator tmp;
 
                                   if (apiProduct.nutriments?.energykcal100g !=
@@ -81,7 +78,6 @@ class ProductView extends StatelessWidget {
                                         kcal,
                                         apiProduct.productInfo.barcode);
                                   }
-                                  print(tmp);
                                   return AddProductDialog(tmp);
                                 });
                           },

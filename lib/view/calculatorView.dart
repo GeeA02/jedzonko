@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:hive/hive.dart';
-import 'package:jedzonko/model/product_calculator.dart';
 import 'package:jedzonko/view/widgets/cards/productCard.dart';
-import 'package:jedzonko/view/widgets/kcalConuterWidget.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 class CalculatorView extends StatelessWidget {
