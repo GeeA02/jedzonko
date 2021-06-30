@@ -39,8 +39,11 @@ class ProductInfo extends StatelessWidget {
                           ? Container(
                               // info about nutriscore
                               child: Center(
-                                child: Image.asset(
-                                    'assets/images/Nutri-score-${_nutriScore!.toUpperCase()}.png'),
+                                child: ClipRRect(
+                                  borderRadius: BorderRadius.circular(30.0),
+                                  child: Image.asset(
+                                      'assets/images/Nutri-score-${_nutriScore!.toUpperCase()}.png'),
+                                ),
                               ),
                             )
                           : Center(
