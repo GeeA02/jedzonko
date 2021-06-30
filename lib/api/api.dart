@@ -27,7 +27,7 @@ class API {
         throw Exception('Problem z zapytaniem');
       }
     } catch (e) {
-      throw Exception('Problem z zapytaniem');
+      throw Exception('Brak dostępu do Internetu');
     }
   }
 }

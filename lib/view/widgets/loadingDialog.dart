@@ -41,16 +41,25 @@ class LoadingDialog extends StatelessWidget {
                     color: Theme.of(context).errorColor,
                     size: 60,
                   ),
-                  Text(
-                    "Niestety kodu $_barcode",
-                    style: Theme.of(context).textTheme.bodyText1,
-                    textAlign: TextAlign.center,
-                  ),
-                  Text(
-                    "nie znaleziono w bazie danych. Sprawdź poprawność wczytanego kodu i spróbuj ponownie.",
-                    style: Theme.of(context).textTheme.bodyText1,
-                    textAlign: TextAlign.center,
-                  ),
+                  snapshot.error.toString() !=
+                          'Exception: Brak dostępu do Internetu'
+                      ? Column(children: [
+                          Text(
+                            "Niestety kodu $_barcode",
+                            style: Theme.of(context).textTheme.bodyText1,
+                            textAlign: TextAlign.center,
+                          ),
+                          Text(
+                            "nie znaleziono w bazie danych. Sprawdź poprawność wczytanego kodu i spróbuj ponownie.",
+                            style: Theme.of(context).textTheme.bodyText1,
+                            textAlign: TextAlign.center,
+                          ),
+                        ])
+                      : Text(
+                          'Brak dostępu do Internetu',
+                          style: Theme.of(context).textTheme.bodyText1,
+                          textAlign: TextAlign.center,
+                        ),
                 ];
                 // pop and return null
                 Timer(Duration(milliseconds: 5000), () {

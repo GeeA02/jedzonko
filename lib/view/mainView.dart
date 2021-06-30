@@ -34,7 +34,7 @@ class _MainViewState extends State<MainView> {
       appBar: AppBar(
         backgroundColor: Colors.transparent,
         iconTheme: IconThemeData(
-            color: Theme.of(context).primaryColor.withOpacity(0.3)),
+            color: Theme.of(context).primaryColor.withOpacity(0.6)),
         elevation: 0.0,
       ),
       //leftside menu

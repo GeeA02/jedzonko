@@ -1,10 +1,12 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/product_calculator.dart';
 import 'package:jedzonko/view/widgets/addProductDialog.dart';
 import 'package:jedzonko/viewModel/calculatorViewModel.dart';
 
 import '../productView.dart';
+import 'loadingDialog.dart';
 
 // ignore: must_be_immutable
 class ProductCard extends StatelessWidget {
@@ -59,11 +61,26 @@ class ProductCard extends StatelessWidget {
           title: Text(_product.productInfo.name,
               style: Theme.of(context).textTheme.bodyText1),
           onTap: () {
-            Navigator.pushNamed(context, ProductView.routeName,
-                arguments: _product);
+            // show loading dialog, and return result from api or null if error occurs
+            Future<ApiProduct?> result = showDialog<ApiProduct?>(
+              context: context,
+              builder: (context) =>
+                  LoadingDialog(_product.productInfo.barcode!),
+              useRootNavigator: false,
+            );
+
+            result.then((value) => checkResult(value, context));
           },
         ),
       ),
     );
+  }
+
+  void checkResult(value, context) async {
+    if (value.runtimeType == ApiProduct) {
+      // navigate to product page
+      await Navigator.pushNamed(context, ProductView.routeName,
+          arguments: value);
+    }
   }
 }

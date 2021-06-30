@@ -1,8 +1,11 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:jedzonko/model/apiProduct.dart';
 import 'package:jedzonko/model/productHistory.dart';
+import 'package:jedzonko/viewModel/historyViewModel.dart';
 
 import '../productView.dart';
+import 'loadingDialog.dart';
 
 class HistoryProductCard extends StatelessWidget {
   final ProductHistory _apiProduct;
@@ -10,7 +13,6 @@ class HistoryProductCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    
     return Card(
       elevation: 5,
       color: Theme.of(context).cardColor,
@@ -26,11 +28,29 @@ class HistoryProductCard extends StatelessWidget {
         title: Text(_apiProduct.productInfo.name,
             style: Theme.of(context).textTheme.bodyText1),
         onTap: () {
-          Navigator.pushNamed(context, ProductView.routeName,
-              arguments: _apiProduct);
+          // show loading dialog, and return result from api or null if error occurs
+          Future<ApiProduct?> result = showDialog<ApiProduct?>(
+            context: context,
+            builder: (context) =>
+                LoadingDialog(_apiProduct.productInfo.barcode!),
+            useRootNavigator: false,
+          );
+
+          result.then((value) => checkResult(value, context));
         },
         subtitle: Text(_apiProduct.productInfo.getDate()),
       ),
     );
+  }
+
+  void checkResult(value, context) async {
+    if (value.runtimeType == ApiProduct) {
+      //TODO (test) save product in history table
+      HistoryViewModel().addProduct(
+          ProductHistory(value.productInfo, value.productInfo.barcode));
+      // navigate to product page
+      await Navigator.pushNamed(context, ProductView.routeName,
+          arguments: value);
+    }
   }
 }
