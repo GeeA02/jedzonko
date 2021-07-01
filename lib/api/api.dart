@@ -9,7 +9,7 @@ class API {
     try {
       final response = await http.get(Uri.https(
           'world.openfoodfacts.org', '/api/v0/product/' + barcode + '.json'));
-
+      print(response.statusCode);
       if (response.statusCode == 200) {
         Map json = jsonDecode(response.body);
         if (json['status'] == 0) {
@@ -27,7 +27,7 @@ class API {
         throw Exception('Problem z zapytaniem');
       }
     } catch (e) {
-      throw Exception('Brak dostępu do Internetu');
+      throw e;
     }
   }
 }

@@ -42,7 +42,7 @@ class LoadingDialog extends StatelessWidget {
                     size: 60,
                   ),
                   snapshot.error.toString() !=
-                          'Exception: Brak dostępu do Internetu'
+                          "SocketException: Failed host lookup: 'world.openfoodfacts.org' (OS Error: No address associated with hostname, errno = 7)"
                       ? Column(children: [
                           Text(
                             "Niestety kodu $_barcode",
