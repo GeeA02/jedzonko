@@ -54,8 +54,8 @@ class ProductInfo {
   factory ProductInfo.fromMap(Map<String, dynamic> map) {
     DateTime now = new DateTime.now();
     DateTime date = new DateTime(now.year, now.month, now.day);
-    return ProductInfo(
-        map['code'], map['product']['product_name_pl'], map['image_url'], date);
+    return ProductInfo(map['code'], map['product']['product_name_pl'],
+        map['product']['image_url'], date);
   }
 
   String toJson() => json.encode(toMap());
