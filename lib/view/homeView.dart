@@ -15,7 +15,7 @@ class HomeView extends StatelessWidget {
                         mainAxisSize: MainAxisSize.max,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: <Widget>[
-                      Image.asset('assets/images/logo.png')
+                      Image.asset('assets/images/logo.png', scale: 0.7)
                     ])))));
   }
 }

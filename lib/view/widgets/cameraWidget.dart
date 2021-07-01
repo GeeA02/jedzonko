@@ -20,7 +20,6 @@ class _CameraWidgetState extends State<CameraWidget> {
   void dispose() {
     super.dispose();
     _camState = false;
-    print('nałra');
   }
 
   @override
@@ -38,7 +37,6 @@ class _CameraWidgetState extends State<CameraWidget> {
               onError: (context, error) =>
                   Center(child: Text(error.toString())),
               qrCodeCallback: (String? barcode) {
-                print(barcode);
                 //turn off the camera
                 setState(() {
                   _camState = false;
@@ -74,7 +72,6 @@ class _CameraWidgetState extends State<CameraWidget> {
 
   void checkResult(value) async {
     if (value.runtimeType == ApiProduct) {
-      //TODO (test) save product in history table
       HistoryViewModel().addProduct(
           ProductHistory(value.productInfo, value.productInfo.barcode));
       // navigate to product page

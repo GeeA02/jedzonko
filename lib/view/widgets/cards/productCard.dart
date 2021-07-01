@@ -59,6 +59,8 @@ class ProductCard extends StatelessWidget {
           ),
           title: Text(_product.productInfo.name,
               style: Theme.of(context).textTheme.bodyText1),
+          subtitle: Text(_product.quantity.toString() + 'g',
+              style: Theme.of(context).textTheme.subtitle2),
           onTap: () {
             // show loading dialog, and return result from api or null if error occurs
             Future<ApiProduct?> result = showDialog<ApiProduct?>(
